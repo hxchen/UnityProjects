@@ -8,9 +8,22 @@ public class Jet : MonoBehaviour
     private bool right = true;
     private GameObject ball = null;
 
+    private void Awake()
+    {
+        // 脚本被禁用时候，Awake会被调用，Start不会
+        Debug.Log("Awake");
+    }
+
+    private void OnEnable()
+    {
+        // 每次启动时调用
+        Debug.Log("OnEnable");
+    }
     // Start is called before the first frame update
     void Start()
     {
+        // 只会调用一次
+        Debug.Log("Start");
         // ChangeDirection();
         // HeadUp();
 
@@ -117,12 +130,10 @@ public class Jet : MonoBehaviour
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
-        Debug.Log("鼠标位置" + mousePos);
         Vector3 mouseWdPos = Camera.main.ScreenToWorldPoint(mousePos);
 
         // 转向
         Vector3 head = this.transform.up;
-        Debug.Log("头朝向" + head);
         Vector3 direction = mouseWdPos - this.transform.position;
         float angle = Vector3.SignedAngle(head, direction, Vector3.forward);
         if ( angle != 0)
