@@ -17,6 +17,9 @@ public class HongYanLong : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        VectorDemo();
+
         //Debug.Log("Hello, world!");
 
         // 获取当前节点
@@ -69,6 +72,24 @@ public class HongYanLong : MonoBehaviour
         this.transform.Translate(0, step, 0, Space.Self);
 
         
+
+    }
+
+    void VectorDemo()
+    {
+
+        Vector3 a = new Vector3(2f, 2f, 0);
+        // 向量的长度
+        float len = a.magnitude;
+        Debug.Log("向量的长度:" + len);
+        // 向量的标准化
+        Vector3 b = a.normalized;
+        Debug.Log("向量标准化为:" + b.ToString("F3"));
+        // 常用的标准向量
+        //Vector3 c1 = Vector3.right;
+        //Vector3 c2 = Vector3.up;
+        //Vector3 c3 = Vector3.forward;
+
 
     }
 }
