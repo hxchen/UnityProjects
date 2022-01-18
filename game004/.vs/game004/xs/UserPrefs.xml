@@ -1,15 +1,16 @@
-﻿<Properties StartupConfiguration="{417C6D2E-C13A-7382-27EA-E73FF2596F22}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ChangeSkins.cs">
+﻿<Properties StartupConfiguration="{788C9DAA-1E43-7308-DD27-0ED5E599069E}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Jet.cs">
     <Files>
-      <File FileName="Assets/Scripts/Change.cs" Line="31" Column="23" />
+      <File FileName="Assets/Script/Bullet.cs" Line="7" Column="5" />
+      <File FileName="Assets/Script/Jet.cs" Line="10" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="game003" expanded="True">
+          <Node name="game004" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="ChangeSkins.cs" selected="True" />
+              <Node name="Script" expanded="True">
+                <Node name="Jet.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -19,7 +20,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9dc0f73e-b8aa-41f5-aedd-243d8abe3da8" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0d77a533-7d4b-40b8-ac15-26ed5737af30" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
