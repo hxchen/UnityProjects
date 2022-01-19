@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{D20FCBF7-8E97-CA1A-5247-7AB31009B148}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MyPiano.cs">
+    <Files>
+      <File FileName="Assets/Script/MyPiano.cs" Line="27" Column="30" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="game006_audio" expanded="True">
+            <Node name="Assets" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0d77a533-7d4b-40b8-ac15-26ed5737af30" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
