@@ -1,16 +1,17 @@
-﻿<Properties StartupConfiguration="{D20FCBF7-8E97-CA1A-5247-7AB31009B148}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MyGun.cs">
+﻿<Properties StartupConfiguration="{9DA5ACBE-7DCC-F220-3DFB-D1465BBB8A81}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MyPet.cs">
     <Files>
-      <File FileName="Assets/Script/MyPiano.cs" Line="27" Column="30" />
-      <File FileName="Assets/Script/MyGun.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MyGirl.cs" Line="24" Column="16" />
+      <File FileName="Assets/Script/MyGame.cs" Line="21" Column="31" />
+      <File FileName="Assets/Script/MyPet.cs" Line="28" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="game006_audio" expanded="True">
+          <Node name="game021" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Script" expanded="True">
-                <Node name="MyGun.cs" selected="True" />
+                <Node name="MyPet.cs" selected="True" />
               </Node>
             </Node>
           </Node>
