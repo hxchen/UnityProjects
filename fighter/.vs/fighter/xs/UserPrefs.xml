@@ -3,10 +3,10 @@
     <Files>
       <File FileName="Assets/Script/MyGame.cs" Line="10" Column="42" />
       <File FileName="Assets/Script/MyBullet.cs" Line="33" Column="53" />
-      <File FileName="Assets/Script/MyJet.cs" Line="41" Column="6" />
-      <File FileName="Assets/Script/MyMonster.cs" Line="19" Column="29" />
+      <File FileName="Assets/Script/MyJet.cs" />
+      <File FileName="Assets/Script/MyMonster.cs" />
       <File FileName="Assets/Script/MonsterCtrl.cs" Line="7" Column="36" />
-      <File FileName="Assets/Script/BackgroundCtrl.cs" Line="19" Column="46" />
+      <File FileName="Assets/Script/BackgroundCtrl.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +14,7 @@
           <Node name="fighter" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Script" expanded="True">
-                <Node name="MyBullet.cs" selected="True" />
+                <Node name="MyMonster.cs" selected="True" />
               </Node>
             </Node>
           </Node>

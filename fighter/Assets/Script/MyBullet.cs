@@ -34,6 +34,10 @@ public class MyBullet : MonoBehaviour
             
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+
+            // 增加积分
+            GameObject main = GameObject.Find("游戏主控");
+            main.SendMessage("AddScore", 1);
         }
         
     }
