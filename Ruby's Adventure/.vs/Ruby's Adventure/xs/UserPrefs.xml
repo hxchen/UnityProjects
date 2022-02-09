@@ -4,7 +4,7 @@
       <File FileName="Assets/Scripts/Collectable.cs" Line="19" Column="6" />
       <File FileName="Assets/Scripts/PlayerController.cs" Line="28" Column="27" />
       <File FileName="Assets/Scripts/DamageArea.cs" Line="22" Column="31" />
-      <File FileName="Assets/Scripts/EnemyController.cs" Line="5" Column="11" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="55" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
