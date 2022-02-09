@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     private float invincibleTimer;//无敌计时器
     private bool isInvincible;//是否处于无敌状态
 
+    // 玩家朝向
+    private Vector2 lookDirection = new Vector2(1, 0);// 默认朝向右方
+    Animator animator;
+
+
     Rigidbody2D rigidBody;// 刚体组件
 
     float horizontal;
@@ -27,8 +32,9 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = 2;
         invincibleTimer = 0;
-
         rigidBody = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
     }
 
 
@@ -49,6 +55,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Vector2 moveVector = new Vector2(horizontal, vertical);
+        if (!Mathf.Approximately(moveVector.x, 0.0f) || !Mathf.Approximately(moveVector.y, 0.0f)) {
+            lookDirection = moveVector;
+            lookDirection.Normalize();
+        }
+        animator.SetFloat("Look X", lookDirection.x);
+        animator.SetFloat("Look Y", lookDirection.y);
+        animator.SetFloat("Speed", moveVector.magnitude);
+
         Vector2 position = rigidBody.position;
         position.x += horizontal * speed * Time.deltaTime;
         position.y += vertical * speed * Time.deltaTime;
@@ -63,6 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         if (value < 0)
         {
+            animator.SetTrigger("Hit");
+
             if (isInvincible)
             {
                 return;
