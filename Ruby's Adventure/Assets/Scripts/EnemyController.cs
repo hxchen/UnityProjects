@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
 
     private Vector2 moveDirection;//移动方向
 
+    public ParticleSystem brokenEffect;//冒烟特效
+
     private bool isFixed;
 
     private Rigidbody2D rbody;
@@ -73,6 +75,11 @@ public class EnemyController : MonoBehaviour
     public void Fixed()
     {
         isFixed = true;
+        if (brokenEffect.isPlaying)
+        {
+            brokenEffect.Stop();
+        }
+
         rbody.simulated = false;
         anim.SetTrigger("fix");
     }

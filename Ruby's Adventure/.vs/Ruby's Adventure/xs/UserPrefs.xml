@@ -1,19 +1,21 @@
-﻿<Properties StartupConfiguration="{39377005-7B8D-AE88-AEFA-9962DAE0B4EA}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BulletController.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/EnemyController.cs" Line="16" Column="41" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="43" Column="20" />
       <File FileName="Assets/Scripts/Collectable.cs" Line="18" Column="9" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="80" Column="10" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="83" Column="14" />
       <File FileName="Assets/Scripts/DamageArea.cs" />
-      <File FileName="Assets/Scripts/BulletController.cs" Line="4" Column="3" />
+      <File FileName="Assets/Scripts/BulletController.cs" Line="19" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Ruby's Adventure" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="BulletController.cs" selected="True" />
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="PlayerController.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
