@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class Collectable : MonoBehaviour
 {
+    public ParticleSystem collectEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,9 @@ public class Collectable : MonoBehaviour
             if (pc.health < pc.maxHealth)
             {
                 pc.ChangeHealth(1);
+
+                //添加特效
+                Instantiate(collectEffect, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
                 
