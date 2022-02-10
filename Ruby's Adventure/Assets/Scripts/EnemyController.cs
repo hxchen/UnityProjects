@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     private Vector2 moveDirection;//移动方向
 
+    private bool isFixed;
 
     private Rigidbody2D rbody;
 
@@ -30,11 +31,17 @@ public class EnemyController : MonoBehaviour
         moveDirection = isVertical ? Vector2.up : Vector2.right;
 
         changeTimeer = changeDirectionTime;
+
+        isFixed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isFixed)
+        {
+            return;
+        }
         changeTimeer -= Time.deltaTime;
         if (changeTimeer < 0)
         {
@@ -61,5 +68,12 @@ public class EnemyController : MonoBehaviour
         {
             pc.ChangeHealth(-1);
         }
+    }
+
+    public void Fixed()
+    {
+        isFixed = true;
+        rbody.simulated = false;
+        anim.SetTrigger("fix");
     }
 }

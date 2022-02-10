@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private float invincibleTimer;//无敌计时器
     private bool isInvincible;//是否处于无敌状态
 
+    public GameObject bulletPrefeb;//子弹
+
     // 玩家朝向
     private Vector2 lookDirection = new Vector2(1, 0);// 默认朝向右方
     Animator animator;
@@ -69,6 +71,18 @@ public class PlayerController : MonoBehaviour
         position.y += vertical * speed * Time.deltaTime;
         rigidBody.MovePosition(position);
 
+        ///按下J键 发射
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            animator.SetTrigger("Launch");
+            GameObject bullet = Instantiate(bulletPrefeb, rigidBody.position + Vector2.up * 0.5f, Quaternion.identity);
+            BulletController bc = bullet.GetComponent<BulletController>();
+            if (bc != null)
+            {
+                bc.Move(lookDirection, 300);
+            }
+        }
+
     }
     /// <summary>
     /// 改变生命值
@@ -91,4 +105,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
+
+    
+
 }
