@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour
 
     private Animator anim;
 
+    public AudioClip fixedClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,5 +84,6 @@ public class EnemyController : MonoBehaviour
 
         rbody.simulated = false;
         anim.SetTrigger("fix");
+        AudioManager.instance.AudioPlay(fixedClip);
     }
 }

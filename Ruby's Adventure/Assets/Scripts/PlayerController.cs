@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private bool isInvincible;//是否处于无敌状态
 
     public GameObject bulletPrefeb;//子弹
+    //=====玩家的音效
+    public AudioClip hitClip;
+    public AudioClip launchClip;
+
 
     // 玩家朝向
     private Vector2 lookDirection = new Vector2(1, 0);// 默认朝向右方
@@ -32,11 +36,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = 2;
+        currentHealth = 5;
         invincibleTimer = 0;
         rigidBody = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+        Debug.Log("UIManager instace = " + UIManager.instance);
+        UIManager.instance.UpdatHealthBar(currentHealth, maxHealth);
     }
 
 
@@ -75,6 +81,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             animator.SetTrigger("Launch");
+            AudioManager.instance.AudioPlay(launchClip);
             GameObject bullet = Instantiate(bulletPrefeb, rigidBody.position + Vector2.up * 0.5f, Quaternion.identity);
             BulletController bc = bullet.GetComponent<BulletController>();
             if (bc != null)
@@ -93,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (value < 0)
         {
             animator.SetTrigger("Hit");
-
+            AudioManager.instance.AudioPlay(hitClip);
             if (isInvincible)
             {
                 return;
@@ -103,6 +110,7 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log(currentHealth + "/" + maxHealth);
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
+        UIManager.instance.UpdatHealthBar(currentHealth, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
 

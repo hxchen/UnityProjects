@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
 {
     Rigidbody2D rbody;
 
+    public AudioClip hitClip;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,6 +38,7 @@ public class BulletController : MonoBehaviour
             Debug.Log("碰到了敌人");
             ec.Fixed();
         }
+        AudioManager.instance.AudioPlay(hitClip);
         //我们还增加了调试日志来了解飞弹触碰到的对象
         Debug.Log("Projectile Collision with " + other.gameObject);
         Destroy(gameObject);

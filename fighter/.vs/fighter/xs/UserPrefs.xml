@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{D04EBB9E-D08D-1D14-0F81-8608EBCC41FF}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MyBullet.cs">
     <Files>
-      <File FileName="Assets/Script/MyGame.cs" Line="26" Column="30" />
-      <File FileName="Assets/Script/MyBullet.cs" Line="40" Column="24" />
+      <File FileName="Assets/Script/MyGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MyBullet.cs" Line="33" Column="41" />
       <File FileName="Assets/Script/MyJet.cs" />
       <File FileName="Assets/Script/MyMonster.cs" />
       <File FileName="Assets/Script/MonsterCtrl.cs" />
@@ -24,7 +24,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0d77a533-7d4b-40b8-ac15-26ed5737af30" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="31ff34d2-20c0-4e1e-a2bc-590a7043938b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

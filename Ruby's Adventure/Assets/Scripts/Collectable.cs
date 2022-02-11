@@ -7,6 +7,9 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     public ParticleSystem collectEffect;
+    //拾取音效
+    public AudioClip collectClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,8 @@ public class Collectable : MonoBehaviour
 
                 //添加特效
                 Instantiate(collectEffect, transform.position, Quaternion.identity);
+                //音效
+                AudioManager.instance.AudioPlay(collectClip);
                 Destroy(this.gameObject);
             }
                 
