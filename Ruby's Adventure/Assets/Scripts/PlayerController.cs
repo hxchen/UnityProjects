@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         rigidBody.MovePosition(position);
 
         ///按下J键 发射
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             animator.SetTrigger("Launch");
             AudioManager.instance.AudioPlay(launchClip);
@@ -88,6 +88,24 @@ public class PlayerController : MonoBehaviour
             {
                 bc.Move(lookDirection, 300);
             }
+        }
+        ///按下D键交互
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            // 对话射线投射
+            RaycastHit2D hit = Physics2D.Raycast(rigidBody.position, lookDirection, 2f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                Debug.Log("射线投射碰到了NPC");
+
+                NPCManager npc = hit.collider.GetComponent<NPCManager>();
+                if (npc != null)
+                {
+                    npc.showDialog();
+                }
+
+            }
+            
         }
 
     }

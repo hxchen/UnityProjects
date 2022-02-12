@@ -1,23 +1,22 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AudioManager.cs">
+﻿<Properties StartupConfiguration="{39377005-7B8D-AE88-AEFA-9962DAE0B4EA}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NPCManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/EnemyController.cs" Line="28" Column="6" />
-      <File FileName="Assets/Scripts/Collectable.cs" Line="42" Column="43" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="35" Column="27" />
-      <File FileName="Assets/Scripts/DamageArea.cs" Line="22" Column="31" />
-      <File FileName="Assets/Scripts/BulletController.cs" Line="19" Column="1" />
-      <File FileName="Assets/Scripts/UIManager.cs" Line="11" Column="22" />
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="34" Column="6" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="77" Column="24" />
+      <File FileName="Assets/Scripts/Collectable.cs" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="99" Column="40" />
+      <File FileName="Assets/Scripts/DamageArea.cs" />
+      <File FileName="Assets/Scripts/BulletController.cs" Line="41" Column="9" />
+      <File FileName="Assets/Scripts/UIManager.cs" />
+      <File FileName="Assets/Scripts/AudioManager.cs" />
+      <File FileName="Assets/Scripts/NPCManager.cs" Line="5" Column="8" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Ruby's Adventure" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Assets" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="AudioManager.cs" selected="True" />
-                </Node>
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="NPCManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -27,9 +26,12 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ca9b98bf-ec5d-43ac-924d-92891805fcf1" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="62af12dc-abbc-4097-8ac7-c60d6290c35d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/haixiangchen/Desktop/UnityProjects/Ruby's Adventure/Assets/Scripts/Collectable.cs" relfile="Assets/Scripts/Collectable.cs" line="42" column="1" />
+      <Breakpoint file="/Users/haixiangchen/Desktop/UnityProjects/Ruby's Adventure/Assets/Scripts/Collectable.cs" relfile="Assets/Scripts/Collectable.cs" line="40" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
