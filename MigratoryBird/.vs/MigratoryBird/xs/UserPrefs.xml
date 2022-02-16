@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{130FA238-8D98-05C2-C0A5-5E4D4FC33668}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scrpits/GameManager.cs">
+    <Files>
+      <File FileName="Assets/Scrpits/Player.cs" Line="39" Column="51" />
+      <File FileName="Assets/Scrpits/Parallax.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scrpits/Spawn.cs" Line="22" Column="37" />
+      <File FileName="Assets/Scrpits/Pipes.cs" Line="13" Column="44" />
+      <File FileName="Assets/Scrpits/GameManager.cs" Line="7" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MigratoryBird" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scrpits" expanded="True">
+                <Node name="GameManager.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="617b0575-4da5-4e34-af34-adac6d483590" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
