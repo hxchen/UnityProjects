@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
     private int currentHealth;//当前生命值
     public int health { get { return currentHealth; } }
 
+    [SerializeField]
+    private int maxBulletCount = 99;//最大子弹数量
+    private int currentBulletCount;//当前子弹数量
+
+    public int MyCurrentBulletCount { get { return currentBulletCount; } }
+    public int MyMaxBulletCount { get { return maxBulletCount; } }
 
     private float invincibleTime = 2f;//无敌时间2秒
     private float invincibleTimer;//无敌计时器
@@ -37,12 +43,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = 5;
+        currentBulletCount = 20;
         invincibleTimer = 0;
         rigidBody = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
-        Debug.Log("UIManager instace = " + UIManager.instance);
         UIManager.instance.UpdatHealthBar(currentHealth, maxHealth);
+        UIManager.instance.UpdateBulletCount(currentBulletCount, maxBulletCount);
     }
 
 
@@ -77,9 +84,10 @@ public class PlayerController : MonoBehaviour
         position.y += vertical * speed * Time.deltaTime;
         rigidBody.MovePosition(position);
 
-        ///按下J键 发射
-        if (Input.GetKeyDown(KeyCode.F))
+        ///按下F键 发射
+        if (Input.GetKeyDown(KeyCode.F) && currentBulletCount > 0)
         {
+            ChangeBulletCount(-1);
             animator.SetTrigger("Launch");
             AudioManager.instance.AudioPlay(launchClip);
             GameObject bullet = Instantiate(bulletPrefeb, rigidBody.position + Vector2.up * 0.5f, Quaternion.identity);
@@ -126,10 +134,20 @@ public class PlayerController : MonoBehaviour
             isInvincible = true;
             invincibleTimer = invincibleTime;
         }
-        Debug.Log(currentHealth + "/" + maxHealth);
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
         UIManager.instance.UpdatHealthBar(currentHealth, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+    }
+    /// <summary>
+    /// 增加子弹数量
+    /// </summary>
+    /// <param name="amout"></param>
+    public void ChangeBulletCount(int amout)
+    {
+        currentBulletCount = Mathf.Clamp(currentBulletCount + amout, 0, maxBulletCount);
+        UIManager.instance.UpdateBulletCount(currentBulletCount, maxBulletCount);
+
+        int result = Mathf.Clamp(2 - 1, 0, 99);
+        Debug.Log("result = " + result);
     }
 
     

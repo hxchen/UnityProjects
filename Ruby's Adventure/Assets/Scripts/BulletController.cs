@@ -40,7 +40,7 @@ public class BulletController : MonoBehaviour
         }
         AudioManager.instance.AudioPlay(hitClip);
         //我们还增加了调试日志来了解飞弹触碰到的对象
-        Debug.Log("Projectile Collision with " + other.gameObject);
+        Debug.Log("子弹打到了： " + other.gameObject);
         Destroy(gameObject);
     }
 
