@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pipes : MonoBehaviour
 {
-    public float speed = 2f;
+    public float speed = 3f;
 
     private float leftEdge;
 
