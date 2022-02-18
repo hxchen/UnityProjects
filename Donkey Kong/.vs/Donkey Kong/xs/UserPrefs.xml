@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{71BFB184-90F1-6C8A-D697-5A871A30E75C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Player.cs" Line="122" Column="21" />
+      <File FileName="Assets/Scripts/Spawner.cs" Line="18" Column="35" />
+      <File FileName="Assets/Scripts/Barrel.cs" Line="17" Column="90" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="5" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Donkey Kong" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="GameManager.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b075c6d2-15a3-466c-8444-5ffa0cfaa6cb" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
