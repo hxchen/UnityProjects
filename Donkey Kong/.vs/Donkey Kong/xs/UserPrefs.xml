@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{71BFB184-90F1-6C8A-D697-5A871A30E75C}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="122" Column="21" />
+      <File FileName="Assets/Scripts/Player.cs" Line="144" Column="62" />
       <File FileName="Assets/Scripts/Spawner.cs" Line="18" Column="35" />
       <File FileName="Assets/Scripts/Barrel.cs" Line="17" Column="90" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="5" Column="5" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="33" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
