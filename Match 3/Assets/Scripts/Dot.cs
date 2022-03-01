@@ -5,7 +5,6 @@ using UnityEngine;
 public class Dot : MonoBehaviour
 {
     [Header("Board Variables")]
-    public float swipeAngle = 0;
     // 当前位置
     public int column;
     public int row;
@@ -24,6 +23,9 @@ public class Dot : MonoBehaviour
     private Vector2 firstTouchPosition;
     private Vector2 finalTouchPosition;
     private Vector2 tempPosition;
+
+    public float swipeAngle = 0;
+    public float swipResist = 1f;
 
     private void Start()
     {
@@ -109,12 +111,17 @@ public class Dot : MonoBehaviour
         finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         CalculateAngle();
     }
-
+    /// <summary>
+    /// 计算滑动夹角
+    /// </summary>
     private void CalculateAngle()
     {
-        swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-        Debug.Log(swipeAngle);
-        MovePieces(); 
+        if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipResist)
+        {
+            swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
+            MovePieces();
+        }
+         
     }
     /// <summary>
     /// 交换移动

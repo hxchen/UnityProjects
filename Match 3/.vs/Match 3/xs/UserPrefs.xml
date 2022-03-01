@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dot.cs">
     <Files>
-      <File FileName="Assets/Scripts/BackgroundTile.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/Board.cs" Line="23" Column="6" />
-      <File FileName="Assets/Scripts/Dot.cs" Line="41" Column="44" />
+      <File FileName="Assets/Scripts/Board.cs" Line="9" Column="34" />
+      <File FileName="Assets/Scripts/Dot.cs" Line="122" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

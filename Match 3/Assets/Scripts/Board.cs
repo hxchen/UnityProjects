@@ -33,11 +33,57 @@ public class Board : MonoBehaviour
                 backgroundTile.name = "( " + i + ", " + j + " )";
 
                 int dotToUse = Random.Range(0, dots.Length);
+                // 检查不能有可消除dots
+                int maxIterations = 0;  // 防止样式太少时，无限循环
+                while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
+                {
+                    dotToUse = Random.Range(0, dots.Length);
+                    maxIterations++;
+                }
+                maxIterations = 0;
+
                 GameObject dot = Instantiate(dots[dotToUse], tempPostion, Quaternion.identity);
                 dot.transform.parent = this.transform;
                 dot.name = "( " + i + ", " + j + " )";
                 allDots[i, j] = dot;
             }
         }
+    }
+    /// <summary>
+    /// 检查是否有三连+
+    /// </summary>
+    /// <returns></returns>
+    private bool MatchesAt(int column, int row, GameObject piece)
+    {
+        if (column > 1 && row > 1)
+        {
+            if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag)
+            {
+                return true;
+            }
+            if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
+            {
+                return true;
+            }
+        }
+        else if (column <= 1 || row <= 1)
+        {
+            if (row > 1)
+            {
+                if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
+                {
+                    return true;
+                }
+            }
+            if (column > 1)
+            {
+                if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
