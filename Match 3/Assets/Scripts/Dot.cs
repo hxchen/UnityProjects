@@ -48,23 +48,28 @@ public class Dot : MonoBehaviour {
         if (Mathf.Abs(targetX - transform.position.x) > .1) {
             // 朝目标移动
             tempPosition = new Vector2(targetX, transform.position.y);
-            transform.position = Vector2.Lerp(transform.position, tempPosition, .4f);
+            transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
+            if (board.allDots[column, row] != this.gameObject) {
+                board.allDots[column, row] = this.gameObject;
+            }
         } else {
             // 直接设置
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = tempPosition;
-            board.allDots[column, row] = this.gameObject;
+            
         }
 
         if (Mathf.Abs(targetY - transform.position.y) > .1) {
             // 朝目标移动
             tempPosition = new Vector2(transform.position.x, targetY);
-            transform.position = Vector2.Lerp(transform.position, tempPosition, .4f);
+            transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
+            if (board.allDots[column, row] != this.gameObject) {
+                board.allDots[column, row] = this.gameObject;
+            }
         } else {
             // 直接设置
             tempPosition = new Vector2(transform.position.x, targetY);
             transform.position = tempPosition;
-            board.allDots[column, row] = this.gameObject;
         }
 
     }
@@ -103,11 +108,10 @@ public class Dot : MonoBehaviour {
     /// 计算滑动夹角
     /// </summary>
     private void CalculateAngle() {
+
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipResist) {
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
-        } else {
-            Debug.Log("角度不够");
         }
          
     }

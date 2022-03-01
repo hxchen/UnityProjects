@@ -106,6 +106,7 @@ public class Board : MonoBehaviour {
                     nullCount++;
                 } else if (nullCount > 0) {
                     allDots[i, j].GetComponent<Dot>().row -= nullCount;
+                    allDots[i, j] = null;
                 }
             }
             nullCount = 0;
