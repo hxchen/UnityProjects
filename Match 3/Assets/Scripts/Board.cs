@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Board : MonoBehaviour
-{
+public class Board : MonoBehaviour {
     public int width;
     public int height;
     public GameObject tilePrefab;
@@ -15,18 +14,15 @@ public class Board : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         allTiles = new BackgroundTile[width, height];
         allDots = new GameObject[width, height];
         SetUp();
     }
 
     private void SetUp() {
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 Vector2 tempPostion = new Vector2(i, j);
                 GameObject backgroundTile = Instantiate(tilePrefab, tempPostion, Quaternion.identity) as GameObject;
                 backgroundTile.transform.parent = this.transform;
@@ -35,8 +31,7 @@ public class Board : MonoBehaviour
                 int dotToUse = Random.Range(0, dots.Length);
                 // 检查不能有可消除dots
                 int maxIterations = 0;  // 防止样式太少时，无限循环
-                while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
-                {
+                while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100) {
                     dotToUse = Random.Range(0, dots.Length);
                     maxIterations++;
                 }
@@ -53,32 +48,23 @@ public class Board : MonoBehaviour
     /// 检查是否有三连+
     /// </summary>
     /// <returns></returns>
-    private bool MatchesAt(int column, int row, GameObject piece)
-    {
-        if (column > 1 && row > 1)
-        {
-            if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag)
-            {
+    private bool MatchesAt(int column, int row, GameObject piece) {
+        if (column > 1 && row > 1) {
+            if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag) {
                 return true;
             }
-            if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
-            {
+            if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag) {
                 return true;
             }
         }
-        else if (column <= 1 || row <= 1)
-        {
-            if (row > 1)
-            {
-                if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
-                {
+        else if (column <= 1 || row <= 1) {
+            if (row > 1) {
+                if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag) {
                     return true;
                 }
             }
-            if (column > 1)
-            {
-                if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag)
-                {
+            if (column > 1) {
+                if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag) {
                     return true;
                 }
             }
@@ -86,4 +72,30 @@ public class Board : MonoBehaviour
 
         return false;
     }
+    /// <summary>
+    /// 消除
+    /// </summary>
+    /// <param name="column"></param>
+    /// <param name="row"></param>
+    private void DestroyMatchesAt(int column, int row) {
+        if (allDots[column, row].GetComponent<Dot>().isMatched) {
+            Destroy(allDots[column, row]);
+            allDots[column, row] = null;
+        }
+        
+    }
+    /// <summary>
+    /// 消除board上的连点
+    /// </summary>
+    public void DestroyMatches() {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (allDots[i, j] != null) {
+                    DestroyMatchesAt(i, j);
+                }
+            }
+        }
+    }
+
+    
 }
