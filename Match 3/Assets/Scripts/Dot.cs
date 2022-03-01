@@ -24,7 +24,7 @@ public class Dot : MonoBehaviour {
     private Vector2 tempPosition;
 
     public float swipeAngle = 0;
-    public float swipResist = 1f;
+    public float swipResist = 0.1f;
 
     private void Start() {
         board = FindObjectOfType<Board>();
@@ -106,6 +106,8 @@ public class Dot : MonoBehaviour {
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipResist) {
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
+        } else {
+            Debug.Log("角度不够");
         }
          
     }

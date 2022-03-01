@@ -56,8 +56,7 @@ public class Board : MonoBehaviour {
             if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag) {
                 return true;
             }
-        }
-        else if (column <= 1 || row <= 1) {
+        } else if (column <= 1 || row <= 1) {
             if (row > 1) {
                 if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag) {
                     return true;
@@ -95,7 +94,22 @@ public class Board : MonoBehaviour {
                 }
             }
         }
+        StartCoroutine(DecreaseRowCo());
     }
 
-    
+    private IEnumerator DecreaseRowCo() {
+        int nullCount = 0;
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (allDots[i, j] == null)
+                {
+                    nullCount++;
+                } else if (nullCount > 0) {
+                    allDots[i, j].GetComponent<Dot>().row -= nullCount;
+                }
+            }
+            nullCount = 0;
+        } 
+        yield return new WaitForSeconds(.4f);
+    }
 }
