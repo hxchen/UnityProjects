@@ -86,8 +86,13 @@ public class Dot : MonoBehaviour {
 
                 row = previousRow;
                 column = previousColumn;
+
+                yield return new WaitForSeconds(0.5f);
+                board.currentState = GameState.move;
+
             } else {
                 board.DestroyMatches();
+                
             }
             otherDot = null;
         }
@@ -96,13 +101,17 @@ public class Dot : MonoBehaviour {
 
 
     private void OnMouseDown() {
-        firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log(firstTouchPosition);
+        if (board.currentState == GameState.move) {
+            firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        
     }
 
     private void OnMouseUp() {
-        finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        CalculateAngle();
+        if(board.currentState == GameState.move) {
+            finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            CalculateAngle();
+        }
     }
     /// <summary>
     /// 计算滑动夹角
@@ -112,6 +121,9 @@ public class Dot : MonoBehaviour {
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipResist) {
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
+            board.currentState = GameState.wait;
+        } else {
+            board.currentState = GameState.move;
         }
          
     }
