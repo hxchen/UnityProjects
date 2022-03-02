@@ -14,9 +14,11 @@ public class Dot : MonoBehaviour {
     public int targetY;
     public bool isMatched = false;
 
+
     /// <summary>
     /// 私有变量
     /// </summary>
+    private FindMatches findMatches;
     private Board board;
     private GameObject otherDot;
     private Vector2 firstTouchPosition;
@@ -28,8 +30,10 @@ public class Dot : MonoBehaviour {
 
     private void Start() {
         board = FindObjectOfType<Board>();
-        targetX = (int)transform.position.x;
-        targetY = (int)transform.position.y;
+        findMatches = FindObjectOfType<FindMatches>();
+
+        //targetX = (int)transform.position.x;
+        //targetY = (int)transform.position.y;
         //row = targetY;
         //column = targetX;
         //previousRow = row;
@@ -37,7 +41,7 @@ public class Dot : MonoBehaviour {
     }
 
     private void Update() {
-        FindMatches();
+        //FindMatches();
         if (isMatched) {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.color = new Color(1, 1, 1, .2f);
@@ -52,6 +56,7 @@ public class Dot : MonoBehaviour {
             if (board.allDots[column, row] != this.gameObject) {
                 board.allDots[column, row] = this.gameObject;
             }
+            findMatches.FindAllMatches();
         } else {
             // 直接设置
             tempPosition = new Vector2(targetX, transform.position.y);
@@ -66,6 +71,7 @@ public class Dot : MonoBehaviour {
             if (board.allDots[column, row] != this.gameObject) {
                 board.allDots[column, row] = this.gameObject;
             }
+            findMatches.FindAllMatches();
         } else {
             // 直接设置
             tempPosition = new Vector2(transform.position.x, targetY);

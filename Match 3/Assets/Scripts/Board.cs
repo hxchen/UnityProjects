@@ -19,10 +19,12 @@ public class Board : MonoBehaviour {
     public GameObject[] dots;
 
     public GameObject[,] allDots;
+    private FindMatches findMatches;
 
 
     // Start is called before the first frame update
     void Start() {
+        findMatches = FindObjectOfType<FindMatches>();
         allTiles = new BackgroundTile[width, height];
         allDots = new GameObject[width, height];
         SetUp();
@@ -88,6 +90,7 @@ public class Board : MonoBehaviour {
     /// <param name="row"></param>
     private void DestroyMatchesAt(int column, int row) {
         if (allDots[column, row].GetComponent<Dot>().isMatched) {
+            findMatches.currentMatches.Remove(allDots[column, row]);
             Destroy(allDots[column, row]);
             allDots[column, row] = null;
         }
