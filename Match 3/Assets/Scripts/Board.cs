@@ -5,6 +5,7 @@ using UnityEngine;
 public class Board : MonoBehaviour {
     public int width;
     public int height;
+    public int offset;
     public GameObject tilePrefab;
     private BackgroundTile[,] allTiles;
     // 所有样式
@@ -23,7 +24,7 @@ public class Board : MonoBehaviour {
     private void SetUp() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                Vector2 tempPostion = new Vector2(i, j);
+                Vector2 tempPostion = new Vector2(i, j + offset);
                 GameObject backgroundTile = Instantiate(tilePrefab, tempPostion, Quaternion.identity) as GameObject;
                 backgroundTile.transform.parent = this.transform;
                 backgroundTile.name = "( " + i + ", " + j + " )";
@@ -36,8 +37,10 @@ public class Board : MonoBehaviour {
                     maxIterations++;
                 }
                 maxIterations = 0;
-
                 GameObject dot = Instantiate(dots[dotToUse], tempPostion, Quaternion.identity);
+                dot.GetComponent<Dot>().row = j;
+                dot.GetComponent<Dot>().column = i;
+
                 dot.transform.parent = this.transform;
                 dot.name = "( " + i + ", " + j + " )";
                 allDots[i, j] = dot;
@@ -121,10 +124,12 @@ public class Board : MonoBehaviour {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (allDots[i, j] == null) {
-                    Vector2 tempPosition = new Vector2(i, j);
+                    Vector2 tempPosition = new Vector2(i, j + offset);
                     int dotToUse = Random.Range(0, dots.Length);
                     GameObject piece = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     allDots[i, j] = piece;
+                    piece.GetComponent<Dot>().row = j;
+                    piece.GetComponent<Dot>().column = i;
                 } 
             }
         }

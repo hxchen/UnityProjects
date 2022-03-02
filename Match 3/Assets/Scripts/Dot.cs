@@ -30,10 +30,10 @@ public class Dot : MonoBehaviour {
         board = FindObjectOfType<Board>();
         targetX = (int)transform.position.x;
         targetY = (int)transform.position.y;
-        row = targetY;
-        column = targetX;
-        previousRow = row;
-        previousColumn = column;
+        //row = targetY;
+        //column = targetX;
+        //previousRow = row;
+        //previousColumn = column;
     }
 
     private void Update() {
@@ -122,21 +122,29 @@ public class Dot : MonoBehaviour {
         if (swipeAngle > -45 && swipeAngle <= 45 && column < board.width - 1) {
             //右交换
             otherDot = board.allDots[column + 1, row];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().column -= 1;
             column += 1;
         } else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height -1) {
             // 上交换
             otherDot = board.allDots[column, row + 1];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().row -= 1;
             row += 1;
         } else if ((swipeAngle > 135 || swipeAngle <= -135) && column > 0) {
             // 左交换
             otherDot = board.allDots[column - 1, row];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().column += 1;
             column -= 1;
         } else if (swipeAngle < -45 && swipeAngle >= -135 && row > 0) {
             // 下交换
             otherDot = board.allDots[column, row - 1];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().row += 1;
             row -= 1;
         }
