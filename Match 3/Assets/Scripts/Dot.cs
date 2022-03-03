@@ -25,10 +25,22 @@ public class Dot : MonoBehaviour {
     private Vector2 finalTouchPosition;
     private Vector2 tempPosition;
 
+    [Header("Swipe Stuff")]
     public float swipeAngle = 0;
     public float swipResist = 0.1f;
 
+
+    [Header("Powerup Stuff")]
+    public bool isColumnBomb;
+    public bool isRowBomb;
+    public GameObject rowArrow;
+    public GameObject columnArrow;
+
     private void Start() {
+
+        isColumnBomb = false;
+        isRowBomb = false;
+
         board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
 
@@ -39,6 +51,18 @@ public class Dot : MonoBehaviour {
         //previousRow = row;
         //previousColumn = column;
     }
+
+    // 调试专用函数
+    private void OnMouseOver() {
+        if (Input.GetMouseButtonDown(1)) {
+            //isColumnBomb = true;
+            //GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
+            isRowBomb = true;
+            GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
+            arrow.transform.parent = this.transform;
+        }
+    }
+
 
     private void Update() {
         //FindMatches();
