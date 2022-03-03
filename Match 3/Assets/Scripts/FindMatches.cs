@@ -141,4 +141,26 @@ public class FindMatches : MonoBehaviour {
 
         return dots;
     }
+
+    public void CheckBombs() {
+        // 玩家在移动？
+        if (board.currentDot != null) {
+            // 移动的点是匹配的？
+            if (board.currentDot.isMatched) {
+                // 设置不匹配
+                board.currentDot.isMatched = false;
+                int typeOfBomb = Random.Range(0, 100);
+
+                if(typeOfBomb < 50){
+                    // 行炸弹
+                    board.currentDot.MakeRowBomb();
+                } else if (typeOfBomb >= 50) {
+                    // 列炸弹
+                    board.currentDot.MakeColumnBomb();
+                }
+            } else if(board.currentDot.otherDot != null){
+                // 另一个点匹配
+            }
+        }
+    }
 }
