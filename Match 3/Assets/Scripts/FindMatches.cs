@@ -158,8 +158,24 @@ public class FindMatches : MonoBehaviour {
                     // 列炸弹
                     board.currentDot.MakeColumnBomb();
                 }
+                Debug.Log("把当前点变为炸弹");
             } else if(board.currentDot.otherDot != null){
                 // 另一个点匹配
+                Dot otherDot = board.currentDot.otherDot.GetComponent<Dot>();
+                if (otherDot.isMatched) {
+                    otherDot.isMatched = false;
+                    int typeOfBomb = Random.Range(0, 100);
+
+                    if (typeOfBomb < 50) {
+                        // 行炸弹
+                        otherDot.MakeRowBomb();
+                    } else if (typeOfBomb >= 50) {
+                        // 列炸弹
+                        otherDot.MakeColumnBomb();
+                    }
+                    Debug.Log("把另个点变为炸弹");
+                }
+
             }
         }
     }
