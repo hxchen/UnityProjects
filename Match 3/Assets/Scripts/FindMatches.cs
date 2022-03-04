@@ -109,6 +109,22 @@ public class FindMatches : MonoBehaviour {
     }
 
     /// <summary>
+    /// 匹配一个颜色
+    /// </summary>
+    /// <param name="color">标签名</param>
+    public void MatchPiecesOfColor(string color) {
+        for (int i = 0; i < board.width; i++) {
+            for (int j = 0; j < board.height; j++) {
+                if (board.allDots[i, j] != null) {
+                    if (board.allDots[i, j].tag == color) {
+                        board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
     /// 获取当前列的点
     /// </summary>
     /// <param name="column"></param>

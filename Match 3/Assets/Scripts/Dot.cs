@@ -30,10 +30,12 @@ public class Dot : MonoBehaviour {
 
 
     [Header("Powerup Stuff")]
+    public bool isColorBomb; 
     public bool isColumnBomb;
     public bool isRowBomb;
     public GameObject rowArrow;
     public GameObject columnArrow;
+    public GameObject colorBomb;
 
     private void Start() {
 
@@ -59,9 +61,11 @@ public class Dot : MonoBehaviour {
         if (Input.GetMouseButtonDown(1)) {
             //isColumnBomb = true;
             //GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
-            isRowBomb = true;
-            GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
-            arrow.transform.parent = this.transform;
+            //isRowBomb = true;
+            //GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
+            isColorBomb = true;
+            GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
+            color.transform.parent = this.transform;
         }
     }
 
@@ -110,7 +114,18 @@ public class Dot : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public IEnumerator CheckMoveCo() {
+        if (isColorBomb) {
+            //  该元素是个颜色炸弹，另一块是待消除元素
+            findMatches.MatchPiecesOfColor(otherDot.tag);
+            isMatched = true;
+        } else if (otherDot.GetComponent<Dot>().isColorBomb) {
+            // 另一块是颜色炸弹，这个是待消除元素
+            findMatches.MatchPiecesOfColor(this.gameObject.tag);
+            otherDot.GetComponent<Dot>().isMatched = true;
+        }
+
         yield return new WaitForSeconds(0.5f);
+
         if (otherDot != null) {
             if (!isMatched && !otherDot.GetComponent<Dot>().isMatched) {
                 otherDot.GetComponent<Dot>().row = row;
