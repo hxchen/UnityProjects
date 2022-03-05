@@ -85,7 +85,10 @@ public class Board : MonoBehaviour {
 
         return false;
     }
-
+    /// <summary>
+    /// 检查是不是一连5个
+    /// </summary>
+    /// <returns></returns>
     private bool ColumnOrRow() {
         int numberHorizontal = 0;
         int numberVertical = 0;
@@ -114,8 +117,8 @@ public class Board : MonoBehaviour {
         }
         if (findMatches.currentMatches.Count == 5 || findMatches.currentMatches.Count == 8) {
             if (ColumnOrRow()) {
-
-                // 颜色炸弹
+                
+                // 一连五个，颜色炸弹
                 if (currentDot != null) {
                     if (currentDot.isMatched) {
                         if (!currentDot.isColorBomb) {

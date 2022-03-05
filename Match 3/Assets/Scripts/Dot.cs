@@ -116,43 +116,7 @@ public class Dot : MonoBehaviour {
         }
 
     }
-    /// <summary>
-    /// 交换后不匹配，等待0.5秒后还原
-    /// </summary>
-    /// <returns></returns>
-    public IEnumerator CheckMoveCo() {
-        if (isColorBomb) {
-            //  该元素是个颜色炸弹，另一块是待消除元素
-            findMatches.MatchPiecesOfColor(otherDot.tag);
-            isMatched = true;
-        } else if (otherDot.GetComponent<Dot>().isColorBomb) {
-            // 另一块是颜色炸弹，这个是待消除元素
-            findMatches.MatchPiecesOfColor(this.gameObject.tag);
-            otherDot.GetComponent<Dot>().isMatched = true;
-        }
-
-        yield return new WaitForSeconds(0.5f);
-
-        if (otherDot != null) {
-            if (!isMatched && !otherDot.GetComponent<Dot>().isMatched) {
-                otherDot.GetComponent<Dot>().row = row;
-                otherDot.GetComponent<Dot>().column = column;
-
-                row = previousRow;
-                column = previousColumn;
-
-                yield return new WaitForSeconds(0.5f);
-                board.currentDot = null;
-                board.currentState = GameState.move;
-
-            } else {
-                board.DestroyMatches();
-                
-            }
-            //otherDot = null;
-        }
-        
-    }
+    
 
 
     private void OnMouseDown() {
@@ -175,9 +139,12 @@ public class Dot : MonoBehaviour {
 
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipResist) {
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-            MovePieces();
+            
             board.currentState = GameState.wait;
             board.currentDot = this;
+
+            MovePieces();
+
         } else {
             board.currentState = GameState.move;
             
@@ -189,36 +156,69 @@ public class Dot : MonoBehaviour {
     /// </summary>
     private void MovePieces() {
         if (swipeAngle > -45 && swipeAngle <= 45 && column < board.width - 1) {
-            //右交换
-            otherDot = board.allDots[column + 1, row];
-            previousRow = row;
-            previousColumn = column;
-            otherDot.GetComponent<Dot>().column -= 1;
-            column += 1;
+            MovePiecesActual(Vector2.right);
         } else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height -1) {
             // 上交换
-            otherDot = board.allDots[column, row + 1];
-            previousRow = row;
-            previousColumn = column;
-            otherDot.GetComponent<Dot>().row -= 1;
-            row += 1;
+            MovePiecesActual(Vector2.up);
         } else if ((swipeAngle > 135 || swipeAngle <= -135) && column > 0) {
             // 左交换
-            otherDot = board.allDots[column - 1, row];
-            previousRow = row;
-            previousColumn = column;
-            otherDot.GetComponent<Dot>().column += 1;
-            column -= 1;
+            MovePiecesActual(Vector2.left);
         } else if (swipeAngle < -45 && swipeAngle >= -135 && row > 0) {
             // 下交换
-            otherDot = board.allDots[column, row - 1];
-            previousRow = row;
-            previousColumn = column;
-            otherDot.GetComponent<Dot>().row += 1;
-            row -= 1;
+            MovePiecesActual(Vector2.down);
         }
+        
+
+        board.currentState = GameState.move;
+    }
+    private void MovePiecesActual(Vector2 direction) {
+        otherDot = board.allDots[column + (int)direction.x, row + (int)direction.y];
+        previousRow = row;
+        previousColumn = column;
+        otherDot.GetComponent<Dot>().column -= 1 * (int)direction.x;
+        otherDot.GetComponent<Dot>().row -= 1 * (int)direction.y;
+        column += (int)direction.x;
+        row += (int)direction.y;
         //协同程序
         StartCoroutine(CheckMoveCo());
+
+    }
+    /// <summary>
+    /// 交换后不匹配，等待0.5秒后还原
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator CheckMoveCo() {
+        if (isColorBomb) {
+            //  该元素是个颜色炸弹，另一块是待消除元素
+            findMatches.MatchPiecesOfColor(otherDot.tag);
+            isMatched = true;
+        } else if (otherDot != null && otherDot.GetComponent<Dot>().isColorBomb) {
+            // 另一块是颜色炸弹，这个是待消除元素
+            findMatches.MatchPiecesOfColor(this.gameObject.tag);
+            otherDot.GetComponent<Dot>().isMatched = true;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (otherDot != null) {
+            if (!isMatched && !otherDot.GetComponent<Dot>().isMatched) {
+                otherDot.GetComponent<Dot>().row = row;
+                otherDot.GetComponent<Dot>().column = column;
+
+                row = previousRow;
+                column = previousColumn;
+
+                yield return new WaitForSeconds(0.5f);
+                board.currentDot = null;
+                board.currentState = GameState.move;
+
+            } else {
+                board.DestroyMatches();
+
+            }
+            //otherDot = null;
+        }
+
     }
     /// <summary>
     /// 查找匹配并设置

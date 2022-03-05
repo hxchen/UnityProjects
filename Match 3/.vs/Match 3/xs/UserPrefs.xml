@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dot.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/Board.cs" Line="102" Column="18" />
-      <File FileName="Assets/Scripts/Dot.cs" Line="54" Column="1" />
-      <File FileName="Assets/Scripts/FindMatches.cs" Line="45" Column="30" />
+      <File FileName="Assets/Scripts/Board.cs" Line="10" Column="34" />
+      <File FileName="Assets/Scripts/Dot.cs" Line="183" Column="39" />
+      <File FileName="Assets/Scripts/FindMatches.cs" Line="207" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
