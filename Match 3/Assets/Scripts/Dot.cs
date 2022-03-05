@@ -138,12 +138,12 @@ public class Dot : MonoBehaviour {
     private void CalculateAngle() {
 
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipResist) {
-            swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-            
             board.currentState = GameState.wait;
-            board.currentDot = this;
+            
+            swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
 
             MovePieces();
+            board.currentDot = this;
 
         } else {
             board.currentState = GameState.move;
@@ -157,7 +157,7 @@ public class Dot : MonoBehaviour {
     private void MovePieces() {
         if (swipeAngle > -45 && swipeAngle <= 45 && column < board.width - 1) {
             MovePiecesActual(Vector2.right);
-        } else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height -1) {
+        } else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height - 1) {
             // 上交换
             MovePiecesActual(Vector2.up);
         } else if ((swipeAngle > 135 || swipeAngle <= -135) && column > 0) {
@@ -166,10 +166,11 @@ public class Dot : MonoBehaviour {
         } else if (swipeAngle < -45 && swipeAngle >= -135 && row > 0) {
             // 下交换
             MovePiecesActual(Vector2.down);
+        } else {
+            // 划出边界重设状态
+            board.currentState = GameState.move;
         }
-        
 
-        board.currentState = GameState.move;
     }
     private void MovePiecesActual(Vector2 direction) {
         otherDot = board.allDots[column + (int)direction.x, row + (int)direction.y];
@@ -218,7 +219,6 @@ public class Dot : MonoBehaviour {
             }
             //otherDot = null;
         }
-
     }
     /// <summary>
     /// 查找匹配并设置
