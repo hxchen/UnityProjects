@@ -212,18 +212,7 @@ public class FindMatches : MonoBehaviour {
             if (board.currentDot.isMatched) {
                 // 设置不匹配
                 board.currentDot.isMatched = false;
-                /**
-                int typeOfBomb = Random.Range(0, 100);
-
-                if(typeOfBomb < 50){
-                    // 行炸弹
-                    board.currentDot.MakeRowBomb();
-                } else if (typeOfBomb >= 50) {
-                    // 列炸弹
-                    board.currentDot.MakeColumnBomb();
-                }  
-                Debug.Log("把当前点变为炸弹");
-                **/
+                
                 if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45)
                     || (board.currentDot.swipeAngle < -135 || board.currentDot.swipeAngle >= 135)) {
                     // 右滑动或者左滑动
@@ -236,18 +225,7 @@ public class FindMatches : MonoBehaviour {
                 Dot otherDot = board.currentDot.otherDot.GetComponent<Dot>();
                 if (otherDot.isMatched) {
                     otherDot.isMatched = false;
-                    /*
-                    int typeOfBomb = Random.Range(0, 100);
-
-                    if (typeOfBomb < 50) {
-                        // 行炸弹
-                        otherDot.MakeRowBomb();
-                    } else if (typeOfBomb >= 50) {
-                        // 列炸弹
-                        otherDot.MakeColumnBomb();
-                    }
-                    Debug.Log("把另个点变为炸弹");
-                    */
+                    
                     if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45)
                     || (board.currentDot.swipeAngle < -135 || board.currentDot.swipeAngle >= 135)) {
                         // 右滑动或者左滑动

@@ -85,6 +85,76 @@ public class Board : MonoBehaviour {
 
         return false;
     }
+
+    private bool ColumnOrRow() {
+        int numberHorizontal = 0;
+        int numberVertical = 0;
+        Dot firstPiece = findMatches.currentMatches[0].GetComponent<Dot>();
+        if (firstPiece != null) {
+            foreach (GameObject currentPiece in findMatches.currentMatches) {
+                Dot dot = currentPiece.GetComponent<Dot>();
+                if (dot.row == firstPiece.row) {
+                    numberHorizontal++;
+                }
+                if (dot.column == firstPiece.column) {
+                    numberVertical++;
+                }
+            }
+        }
+
+        return (numberVertical == 5 || numberHorizontal == 5);
+    }
+    /// <summary>
+    /// 生成不同类型炸弹
+    /// </summary>
+    private void CheckToMakeBombs() {
+        if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7) {
+            // 行列炸弹
+            findMatches.CheckBombs();
+        }
+        if (findMatches.currentMatches.Count == 5 || findMatches.currentMatches.Count == 8) {
+            if (ColumnOrRow()) {
+
+                // 颜色炸弹
+                if (currentDot != null) {
+                    if (currentDot.isMatched) {
+                        if (!currentDot.isColorBomb) {
+                            currentDot.isMatched = false;
+                            currentDot.MakeColorBomb();
+                        }
+                    } else {
+                        if (currentDot.otherDot != null) {
+                            Dot otherDot = currentDot.otherDot.GetComponent<Dot>();
+                            if (otherDot.isMatched && !otherDot.isColorBomb) {
+                                otherDot.isMatched = false;
+                                otherDot.MakeColorBomb();
+                            }
+                        }
+                    }
+                    
+                }
+            } else {
+                // 邻近炸弹
+                if (currentDot != null) {
+                    if (currentDot.isMatched) {
+                        if (!currentDot.isAdjacentBomb) {
+                            currentDot.isMatched = false;
+                            currentDot.MakeAdjacentBomb();
+                        }
+                    } else {
+                        if (currentDot.otherDot != null) {
+                            Dot otherDot = currentDot.otherDot.GetComponent<Dot>();
+                            if (otherDot.isMatched && !otherDot.isAdjacentBomb) {
+                                otherDot.isMatched = false;
+                                otherDot.MakeAdjacentBomb();
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
     /// <summary>
     /// 消除
     /// </summary>
@@ -93,8 +163,8 @@ public class Board : MonoBehaviour {
     private void DestroyMatchesAt(int column, int row) {
         if (allDots[column, row].GetComponent<Dot>().isMatched) {
             //  检查匹配项里面有多少个元素点
-            if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7) {
-                findMatches.CheckBombs();
+            if (findMatches.currentMatches.Count >= 4) {
+                CheckToMakeBombs();
             }
             
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
