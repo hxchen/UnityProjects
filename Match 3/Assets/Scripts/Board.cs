@@ -326,6 +326,93 @@ public class Board : MonoBehaviour {
         findMatches.currentMatches.Clear();
         currentDot = null;
         yield return new WaitForSeconds(0.5f);
+        //检查游戏是否能继续
+        if (IsDeadlocked()) {
+            Debug.Log("Dead Locked!!!");
+        }
         currentState = GameState.move;
+    }
+    /// <summary>
+    /// 交换元素
+    /// </summary>
+    /// <param name="column"></param>
+    /// <param name="row"></param>
+    /// <param name="direction"></param>
+    private void SwitchPiece(int column, int row, Vector2 direction) {
+        // 保存第二个点
+        GameObject holder = allDots[column + (int) direction.x, row + (int) direction.y] as GameObject;
+        // 第一个点替换到第二个点
+        allDots[column + (int)direction.x, row + (int)direction.y] = allDots[column, row];
+        // 第二个点替换第一个点
+        allDots[column, row] = holder;
+    }
+    /// <summary>
+    /// 检查是否有可消除元素
+    /// </summary>
+    /// <returns></returns>
+    private bool CheckForMatches() {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (allDots[i, j] != null) {
+                    if (i < width - 2) {
+                        // 检查右边的点
+                        if (allDots[i + 1, j] != null && allDots[i + 2, j] != null) {
+                            if (allDots[i + 1, j].tag == allDots[i, j].tag && allDots[i + 2, j].tag == allDots[i, j].tag) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (j < height - 2) {
+                        // 检查上面点
+                        if (allDots[i, j + 1] != null && allDots[i, j + 2] != null) {
+                            if (allDots[i, j + 1].tag == allDots[i, j].tag && allDots[i, j + 2].tag == allDots[i, j].tag) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    /// <summary>
+    /// 交换并检查是否有可消除元素后还原交换
+    /// </summary>
+    /// <param name="column"></param>
+    /// <param name="row"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
+    private bool SwitchAndCheck(int column, int row, Vector2 direction) {
+        SwitchPiece(column, row, direction);
+        if (CheckForMatches()) {
+            SwitchPiece(column, row, direction);
+            return true;
+        }
+        SwitchPiece(column, row, direction);
+        return false;
+    }
+    /// <summary>
+    /// 检查是否死锁
+    /// </summary>
+    /// <returns></returns>
+    private bool IsDeadlocked() {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (allDots[i, j] != null) {
+                    if (i < width - 2) {
+                        if (SwitchAndCheck(i, j, Vector2.right)) {
+                            return false;
+                        }
+
+                    }
+                    if (j < height - 2) {
+                        if (SwitchAndCheck(i, j, Vector2.up)) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 }

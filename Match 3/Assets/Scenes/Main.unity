@@ -266,8 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
-  width: 7
-  height: 10
+  width: 5
+  height: 5
   offset: 10
   tilePrefab: {fileID: 1067420433964748482, guid: 2e7eec8abff014b86abc00198faad6f4, type: 3}
   breakableTilePrefab: {fileID: 9050854212980322754, guid: 80ca50382a109413e8311b1d1fee8f01, type: 3}
