@@ -27,9 +27,12 @@ public class Board : MonoBehaviour {
     public int height;
     public int offset;
     public GameObject tilePrefab;
+    public GameObject breakableTilePrefab;
     public GameObject destroyEffect;
+    // 特殊点
     public TileType[] boardLayout;
     private bool[,] blankSpaces;
+    private BackgroundTile[,] breakableTiles;
     // 所有样式
     public GameObject[] dots;
 
@@ -40,12 +43,15 @@ public class Board : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        breakableTiles = new BackgroundTile[width, height];
         findMatches = FindObjectOfType<FindMatches>();
         blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
         SetUp();
     }
-
+    /// <summary>
+    /// 生成空白点
+    /// </summary>
     public void GenerateBlankSpaces() {
         for (int i = 0; i < boardLayout.Length; i++) {
             if (boardLayout[i].tileKind == TileKind.Blank) {
@@ -53,9 +59,25 @@ public class Board : MonoBehaviour {
             }
         }
     }
+    /// <summary>
+    /// 生成易碎瓦片
+    /// </summary>
+    public void GenerateBreakableTiles() {
+
+        for (int i = 0; i < boardLayout.Length; i++) {
+            if (boardLayout[i].tileKind == TileKind.Breakable) {
+                Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
+                GameObject tile = Instantiate(breakableTilePrefab, tempPosition, Quaternion.identity);
+                breakableTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+            }
+        }
+    }
 
     private void SetUp() {
+        // 生成空白点
         GenerateBlankSpaces();
+        // 生成果冻点
+        GenerateBreakableTiles();
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (!blankSpaces[i, j]) {
@@ -197,7 +219,15 @@ public class Board : MonoBehaviour {
             if (findMatches.currentMatches.Count >= 4) {
                 CheckToMakeBombs();
             }
-            
+
+            // 检查瓦片是否易碎
+            if (breakableTiles[column, row] != null) {
+                breakableTiles[column, row].TakeDamage(1);
+                if (breakableTiles[column, row].hitPoints <= 0) {
+                    breakableTiles[column, row] = null;
+                }
+            }
+
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, 0.5f);
             Destroy(allDots[column, row]);
