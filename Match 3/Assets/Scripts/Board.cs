@@ -93,7 +93,7 @@ public class Board : MonoBehaviour {
                         dotToUse = Random.Range(0, dots.Length);
                         maxIterations++;
                     }
-                    maxIterations = 0;
+                    //maxIterations = 0;
                     GameObject dot = Instantiate(dots[dotToUse], tempPostion, Quaternion.identity);
                     dot.GetComponent<Dot>().row = j;
                     dot.GetComponent<Dot>().column = i;
@@ -329,6 +329,7 @@ public class Board : MonoBehaviour {
         //检查游戏是否能继续
         if (IsDeadlocked()) {
             Debug.Log("Dead Locked!!!");
+            StartCoroutine(ShuffleBoard());
         }
         currentState = GameState.move;
     }
@@ -414,5 +415,54 @@ public class Board : MonoBehaviour {
             }
         }
         return true;
+    }
+
+    /// <summary>
+    /// 重新洗牌
+    /// </summary>
+    private IEnumerator ShuffleBoard() {
+
+        yield return new WaitForSeconds(0.5f);
+
+        List<GameObject> newBoard = new List<GameObject>();
+        // 保存每一个元素点
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (allDots[i, j] != null) {
+                    newBoard.Add(allDots[i, j]);
+                }
+            }
+        }
+        yield return new WaitForSeconds(0.5f);
+        // 重新随机设置元素点
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (!blankSpaces[i, j]) {
+                    int pieceToUse = Random.Range(0, newBoard.Count);
+
+                    int maxIterations = 0;  // 防止样式太少时，无限循环
+
+                    // 检查不能有可消除dots
+                    
+                    while (MatchesAt(i, j, newBoard[pieceToUse]) && maxIterations < 100) {
+                        pieceToUse = Random.Range(0, newBoard.Count);
+                        maxIterations++;
+                    }
+                    Dot piece = newBoard[pieceToUse].GetComponent<Dot>();
+                    //maxIterations = 0;
+                    piece.column = i;
+                    piece.row = j;
+                    allDots[i, j] = newBoard[pieceToUse];
+                    newBoard.Remove(newBoard[pieceToUse]);
+
+                }
+            }
+        }
+
+        // 检查新板是不是死锁
+        if (IsDeadlocked()) {
+            //递归调用重新洗板
+            StartCoroutine(ShuffleBoard());
+        }
     }
 }
