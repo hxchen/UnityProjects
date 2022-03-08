@@ -18,6 +18,8 @@ public class Dot : MonoBehaviour {
     /// <summary>
     /// 私有变量
     /// </summary>
+    ///
+    private HintManager hintManager;
     private FindMatches findMatches;
     private Board board;
     private Vector2 firstTouchPosition;
@@ -49,7 +51,7 @@ public class Dot : MonoBehaviour {
 
         board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
-
+        hintManager = FindObjectOfType<HintManager>();
         //targetX = (int)transform.position.x;
         //targetY = (int)transform.position.y;
         //row = targetY;
@@ -120,6 +122,11 @@ public class Dot : MonoBehaviour {
 
 
     private void OnMouseDown() {
+        // 销毁提示
+        if (hintManager != null) {
+            hintManager.DestroyHint();
+        }
+        
         if (board.currentState == GameState.move) {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }

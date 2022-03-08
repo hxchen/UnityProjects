@@ -383,7 +383,7 @@ public class Board : MonoBehaviour {
     /// <param name="row"></param>
     /// <param name="direction"></param>
     /// <returns></returns>
-    private bool SwitchAndCheck(int column, int row, Vector2 direction) {
+    public bool SwitchAndCheck(int column, int row, Vector2 direction) {
         SwitchPiece(column, row, direction);
         if (CheckForMatches()) {
             SwitchPiece(column, row, direction);
