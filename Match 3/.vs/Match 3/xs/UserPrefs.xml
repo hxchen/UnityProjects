@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HintManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Board.cs" Line="332" Column="42" />
-      <File FileName="Assets/Scripts/Dot.cs" Line="166" Column="56" />
+      <File FileName="Assets/Scripts/Board.cs" Line="100" Column="53" />
+      <File FileName="Assets/Scripts/Dot.cs" Line="142" Column="18" />
       <File FileName="Assets/Scripts/FindMatches.cs" Line="191" Column="30" />
-      <File FileName="Assets/Scripts/CameraScalar.cs" Line="24" Column="18" />
-      <File FileName="Assets/Scripts/BackgroundTile.cs" Line="17" Column="24" />
-      <File FileName="Assets/Scripts/HintManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraScalar.cs" Line="27" Column="15" />
+      <File FileName="Assets/Scripts/BackgroundTile.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/HintManager.cs" Line="36" Column="53" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="8" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +15,7 @@
           <Node name="Match 3" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="HintManager.cs" selected="True" />
+                <Node name="ScoreManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>

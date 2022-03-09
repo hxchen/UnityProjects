@@ -39,10 +39,15 @@ public class Board : MonoBehaviour {
     public GameObject[,] allDots;
     public Dot currentDot;
     private FindMatches findMatches;
+    //单点得分
+    public int basePieceValue = 20;
+    private int streakValue = 1;
+    private ScoreManager scoreManager;
 
 
     // Start is called before the first frame update
     void Start() {
+        scoreManager = FindObjectOfType<ScoreManager>();
         breakableTiles = new BackgroundTile[width, height];
         findMatches = FindObjectOfType<FindMatches>();
         blankSpaces = new bool[width, height];
@@ -78,11 +83,13 @@ public class Board : MonoBehaviour {
         GenerateBlankSpaces();
         // 生成果冻点
         GenerateBreakableTiles();
+
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (!blankSpaces[i, j]) {
                     Vector2 tempPostion = new Vector2(i, j + offset);
-                    GameObject backgroundTile = Instantiate(tilePrefab, tempPostion, Quaternion.identity) as GameObject;
+                    Vector2 tilePosition = new Vector2(i, j);
+                    GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
                     backgroundTile.transform.parent = this.transform;
                     backgroundTile.name = "( " + i + ", " + j + " )";
 
@@ -231,6 +238,7 @@ public class Board : MonoBehaviour {
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, 0.5f);
             Destroy(allDots[column, row]);
+            scoreManager.IncreaseScore(basePieceValue * streakValue);
             allDots[column, row] = null;
         }
         
@@ -320,6 +328,8 @@ public class Board : MonoBehaviour {
         RefillBoard();
         yield return new WaitForSeconds(0.5f);
         while (MatchesOnBoard()) {
+            //得分
+            streakValue += 1;
             yield return new WaitForSeconds(0.5f);
             DestroyMatches();
         }
@@ -332,6 +342,7 @@ public class Board : MonoBehaviour {
             StartCoroutine(ShuffleBoard());
         }
         currentState = GameState.move;
+        streakValue = 1;
     }
     /// <summary>
     /// 交换元素
@@ -400,13 +411,13 @@ public class Board : MonoBehaviour {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (allDots[i, j] != null) {
-                    if (i < width - 2) {
+                    if (i < width - 1) {
                         if (SwitchAndCheck(i, j, Vector2.right)) {
                             return false;
                         }
 
                     }
-                    if (j < height - 2) {
+                    if (j < height - 1) {
                         if (SwitchAndCheck(i, j, Vector2.up)) {
                             return false;
                         }

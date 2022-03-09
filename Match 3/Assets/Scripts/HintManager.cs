@@ -37,14 +37,12 @@ public class HintManager : MonoBehaviour {
                 if (board.allDots[i, j] != null) {
                     if (i < board.width - 1) {
                         if (board.SwitchAndCheck(i, j, Vector2.right)) {
-                            Debug.Log("向右可以哦(" + i + ", " + j + ")");
                             possibleMoves.Add(board.allDots[i, j]);
                         }
 
                     }
                     if (j < board.height - 1) {
                         if (board.SwitchAndCheck(i, j, Vector2.up)) {
-                            Debug.Log("向上可以哦(" + i + ", " + j + ")");
                             possibleMoves.Add(board.allDots[i, j]);
                         }
                     }

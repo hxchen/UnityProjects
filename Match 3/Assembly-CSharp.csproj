@@ -59,6 +59,7 @@
     <Compile Include="Assets/Scripts/Dot.cs" />
     <Compile Include="Assets/Scripts/CameraScalar.cs" />
     <Compile Include="Assets/Scripts/HintManager.cs" />
+    <Compile Include="Assets/Scripts/ScoreManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
