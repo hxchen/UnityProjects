@@ -196,8 +196,10 @@ public class FindMatches : MonoBehaviour {
         for (int i = column - 1; i <= column + 1; i++) {
             for (int j = row - 1; j <= row + 1; j++) {
                 if (i >= 0 && i < board.width && j >= 0 && j < board.height) {
-                    dots.Add(board.allDots[i, j]);
-                    board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+                    if (board.allDots[i, j] != null) {
+                        dots.Add(board.allDots[i, j]);
+                        board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+                    }
                 }
             }
         }

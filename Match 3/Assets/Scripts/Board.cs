@@ -10,7 +10,7 @@ public enum GameState {
 public enum TileKind {
     Breakable,
     Blank,
-    Bormal
+    Normal
 }
 // 告诉编辑器序列化
 [System.Serializable]
@@ -43,6 +43,7 @@ public class Board : MonoBehaviour {
     public int basePieceValue = 20;
     private int streakValue = 1;
     private ScoreManager scoreManager;
+    public float refillDelay = 0.5f;
 
 
     // Start is called before the first frame update
@@ -272,7 +273,7 @@ public class Board : MonoBehaviour {
                 }
             }
         }
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(refillDelay * 0.5f);
         StartCoroutine(FillBoardCo());
     }
 
@@ -290,7 +291,7 @@ public class Board : MonoBehaviour {
             }
             nullCount = 0;
         } 
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(refillDelay * 0.5f);
         StartCoroutine(FillBoardCo());
     }
     /// <summary>
@@ -302,6 +303,15 @@ public class Board : MonoBehaviour {
                 if (allDots[i, j] == null && !blankSpaces[i, j]) {
                     Vector2 tempPosition = new Vector2(i, j + offset);
                     int dotToUse = Random.Range(0, dots.Length);
+
+                    int maxIterations = 0;
+                    Debug.Log("RefillBoard maxIterations = " + maxIterations);
+                    while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100) {
+                        maxIterations++;
+                        dotToUse = Random.Range(0, dots.Length);
+                    }
+                    maxIterations = 0;
+
                     GameObject piece = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     allDots[i, j] = piece;
                     piece.GetComponent<Dot>().row = j;
@@ -326,16 +336,17 @@ public class Board : MonoBehaviour {
 
     private IEnumerator FillBoardCo() {
         RefillBoard();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(refillDelay);
         while (MatchesOnBoard()) {
             //得分
-            streakValue += 1;
-            yield return new WaitForSeconds(0.5f);
+            streakValue ++;
             DestroyMatches();
+            yield return new WaitForSeconds(2* refillDelay);
+            
         }
         findMatches.currentMatches.Clear();
         currentDot = null;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(refillDelay);
         //检查游戏是否能继续
         if (IsDeadlocked()) {
             Debug.Log("Dead Locked!!!");
