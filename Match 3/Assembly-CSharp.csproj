@@ -53,13 +53,14 @@
     <UnityVersion>2020.3.25f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/HintManager.cs" />
     <Compile Include="Assets/Scripts/Board.cs" />
+    <Compile Include="Assets/Scripts/ScoreManager.cs" />
     <Compile Include="Assets/Scripts/BackgroundTile.cs" />
     <Compile Include="Assets/Scripts/FindMatches.cs" />
     <Compile Include="Assets/Scripts/Dot.cs" />
     <Compile Include="Assets/Scripts/CameraScalar.cs" />
-    <Compile Include="Assets/Scripts/HintManager.cs" />
-    <Compile Include="Assets/Scripts/ScoreManager.cs" />
+    <Compile Include="Assets/Scripts/AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
