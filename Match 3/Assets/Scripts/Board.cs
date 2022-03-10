@@ -305,7 +305,7 @@ public class Board : MonoBehaviour {
                     int dotToUse = Random.Range(0, dots.Length);
 
                     int maxIterations = 0;
-                    Debug.Log("RefillBoard maxIterations = " + maxIterations);
+                    //Debug.Log("RefillBoard maxIterations = " + maxIterations);
                     while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100) {
                         maxIterations++;
                         dotToUse = Random.Range(0, dots.Length);
