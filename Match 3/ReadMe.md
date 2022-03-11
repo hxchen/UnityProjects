@@ -14,3 +14,18 @@
    2. Orthographic size （camera pos = frame/2）
    3. Aspect Ratio
 
+5. 动作创作
+
+   1. 创建Animator（区别于Animation包含状态机，可以多个动画转换；Animation单个动画）组件。
+   2. 创建Animator Controller并绑定Animator。
+   3. windows打开Animator和Animation。
+   4. Animation窗体中创建Animation。
+
+6. 
+
+   
+
+7. 
+
+8. 
+
