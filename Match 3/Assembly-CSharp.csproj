@@ -62,6 +62,8 @@
     <Compile Include="Assets/Scripts/CameraScalar.cs" />
     <Compile Include="Assets/Scripts/AudioManager.cs" />
     <Compile Include="Assets/Scripts/FadePanelController.cs" />
+    <Compile Include="Assets/Scripts/GoalManager.cs" />
+    <Compile Include="Assets/Scripts/GoalPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
