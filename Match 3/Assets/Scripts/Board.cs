@@ -44,12 +44,14 @@ public class Board : MonoBehaviour {
     private int streakValue = 1;
     private ScoreManager scoreManager;
     private AudioManager audioManager;
+    private GoalManager goalManager;
     public float refillDelay = 0.5f;
     public int[] scoreGoals; 
 
 
     // Start is called before the first frame update
     void Start() {
+        goalManager = FindObjectOfType<GoalManager>();
         audioManager = FindObjectOfType<AudioManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
         breakableTiles = new BackgroundTile[width, height];
@@ -237,6 +239,11 @@ public class Board : MonoBehaviour {
                 if (breakableTiles[column, row].hitPoints <= 0) {
                     breakableTiles[column, row] = null;
                 }
+            }
+            // 目标
+            if (goalManager != null) {
+                goalManager.CompareGoal(allDots[column, row].tag.ToString());
+                goalManager.UpdateGoals();
             }
             //音效
             if (audioManager != null) {

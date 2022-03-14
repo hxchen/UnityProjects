@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7555218027954729126}
   m_Layer: 0
   m_Name: Breakable Tile
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e480ecda6c645d78065bbbde0067c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 3
+  hitPoints: 1
