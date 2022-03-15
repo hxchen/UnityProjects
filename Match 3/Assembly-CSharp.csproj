@@ -55,15 +55,16 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/HintManager.cs" />
     <Compile Include="Assets/Scripts/Board.cs" />
+    <Compile Include="Assets/Scripts/GoalManager.cs" />
     <Compile Include="Assets/Scripts/ScoreManager.cs" />
+    <Compile Include="Assets/Scripts/GoalPanel.cs" />
+    <Compile Include="Assets/Scripts/FadePanelController.cs" />
     <Compile Include="Assets/Scripts/BackgroundTile.cs" />
     <Compile Include="Assets/Scripts/FindMatches.cs" />
     <Compile Include="Assets/Scripts/Dot.cs" />
-    <Compile Include="Assets/Scripts/CameraScalar.cs" />
     <Compile Include="Assets/Scripts/AudioManager.cs" />
-    <Compile Include="Assets/Scripts/FadePanelController.cs" />
-    <Compile Include="Assets/Scripts/GoalManager.cs" />
-    <Compile Include="Assets/Scripts/GoalPanel.cs" />
+    <Compile Include="Assets/Scripts/CameraScalar.cs" />
+    <Compile Include="Assets/Scripts/EndGameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
