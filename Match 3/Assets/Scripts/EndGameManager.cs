@@ -20,13 +20,19 @@ public class EndGameManager : MonoBehaviour {
 
     public GameObject movesLabel;
     public GameObject timeLabel;
+    public GameObject youWinPanel;
+    public GameObject tryAgainPanel;
+
     public Text counter;
     public int currentCounterValue;
+
+    private Board board;
     private float timerSeconds;
 
 
     // Start is called before the first frame update
     void Start() {
+        board = FindObjectOfType<Board>();
         Setup();
     }
     /// <summary>
@@ -46,17 +52,44 @@ public class EndGameManager : MonoBehaviour {
         counter.text = "" + currentCounterValue;
     }
 
+    /// <summary>
+    /// 减少倒数或者倒计时
+    /// </summary>
     public void DecreaseCounterValue() {
-        currentCounterValue--;
+        if (board.currentState != GameState.pause) {
+            currentCounterValue--;
+            counter.text = "" + currentCounterValue;
+
+            if (currentCounterValue <= 0) {
+                LoseGame();
+            }
+        }
+        
+    }
+    /// <summary>
+    /// 获胜
+    /// </summary>
+    public void WinGame() {
+
+        youWinPanel.SetActive(true);
+        board.currentState = GameState.win;
+        currentCounterValue = 0;
+        counter.text = "" + currentCounterValue;
+        
+    }
+    /// <summary>
+    /// 失败
+    /// </summary>
+    public void LoseGame() {
+        tryAgainPanel.SetActive(true);
+        board.currentState = GameState.lose;
+        Debug.Log("You Lose!");
+        currentCounterValue = 0;
         counter.text = "" + currentCounterValue;
 
-        if (currentCounterValue <= 0) {
-            Debug.Log("You Lose!");
-            currentCounterValue = 0;
-            counter.text = "" + currentCounterValue;
-        }
+        FadePanelController fade = FindObjectOfType<FadePanelController>();
+        fade.GameOver();
     }
-
 
     void Update() {
         if (requiremants.gameType == GameType.Time && currentCounterValue > 0) {
