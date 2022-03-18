@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//闯关目标
 [System.Serializable]
 public class BlankGoal {
     public int numberNeeded;
@@ -17,12 +18,27 @@ public class GoalManager : MonoBehaviour {
     public GameObject goalPrefab;
     public GameObject goalIntroParent;
     public GameObject goalGameParent;
-
+    private Board board;
     private EndGameManager endGame;
 
     void Start() {
+        board = FindObjectOfType<Board>();
         endGame = FindObjectOfType<EndGameManager>();
+        GetGoals();
         SetupGoals();
+    }
+
+    void GetGoals() {
+        if (board != null) {
+            if (board.world != null) {
+                if (board.level < board.world.levels.Length) {
+                    if (board.world.levels[board.level] != null) {
+                        levelGoals = board.world.levels[board.level].levelGoals;
+                    }
+                }
+               
+            }
+        }
     }
 
     void SetupGoals() {

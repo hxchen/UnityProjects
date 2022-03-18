@@ -662,7 +662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08400001, y: 0.18249823}
   m_AnchorMax: {x: 0.91, y: 0.82500005}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -75.7108, y: -89.91751}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &291035566
@@ -1258,32 +1258,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c0a3cfe9e5f43f492581bbf97d5c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  world: {fileID: 11400000, guid: 1f6eedbc531984896baf5df527fe4b6e, type: 2}
+  level: 2
   currentState: 1
   width: 6
   height: 8
   offset: 10
   tilePrefab: {fileID: 5350441283305584877, guid: 2e7eec8abff014b86abc00198faad6f4, type: 3}
   breakableTilePrefab: {fileID: 9050854212980322754, guid: 80ca50382a109413e8311b1d1fee8f01, type: 3}
-  destroyEffect: {fileID: 3218495684736706395, guid: b8f088ad525744dce90bcff5f7c33a46, type: 3}
-  boardLayout:
-  - x: 0
-    y: 0
-    tileKind: 1
-  - x: 5
-    y: 0
-    tileKind: 1
-  - x: 5
-    y: 7
-    tileKind: 1
-  - x: 0
-    y: 7
-    tileKind: 1
-  - x: 3
-    y: 3
-    tileKind: 0
-  - x: 3
-    y: 4
-    tileKind: 0
   dots:
   - {fileID: 4836120349288575830, guid: 831ec32b7e9a94449a7026daffe14d9c, type: 3}
   - {fileID: 8157448159887613530, guid: 14e799e30c83646f78585c0ef9669594, type: 3}
@@ -1291,6 +1273,8 @@ MonoBehaviour:
   - {fileID: 6669035609340448304, guid: f57d4e6e82ff64ba8977e9f53c8732ee, type: 3}
   - {fileID: 2835141807575693413, guid: c502811b340564714acfd68d11684482, type: 3}
   - {fileID: 1397712035101047052, guid: ba508eb1352c246c08818507409d5759, type: 3}
+  destroyEffect: {fileID: 3218495684736706395, guid: b8f088ad525744dce90bcff5f7c33a46, type: 3}
+  boardLayout: []
   currentDot: {fileID: 0}
   basePieceValue: 20
   refillDelay: 0.5
@@ -1427,7 +1411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08400001, y: 0.18249823}
   m_AnchorMax: {x: 0.91, y: 0.82500005}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -75.7108, y: -89.91751}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &718254145
@@ -1812,7 +1796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08400001, y: 0.18249823}
   m_AnchorMax: {x: 0.91, y: 0.82500005}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -75.7108, y: -89.91751}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122740518
@@ -3526,9 +3510,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiremants:
-    gameType: 1
-    counterValue: 5
+    gameType: 0
+    counterValue: 2
   movesLabel: {fileID: 905662560}
   timeLabel: {fileID: 1213198207}
+  youWinPanel: {fileID: 291035564}
+  tryAgainPanel: {fileID: 718254143}
   counter: {fileID: 1930743036}
   currentCounterValue: 0

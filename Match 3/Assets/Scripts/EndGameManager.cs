@@ -16,6 +16,8 @@ public class EndGameRequiremants {
 
 public class EndGameManager : MonoBehaviour {
 
+
+
     public EndGameRequiremants requiremants;
 
     public GameObject movesLabel;
@@ -33,8 +35,20 @@ public class EndGameManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         board = FindObjectOfType<Board>();
+        SetGameType();
         Setup();
     }
+
+    void SetGameType() {
+        if (board.world != null) {
+            if (board.level < board.world.levels.Length) {
+                if (board.world.levels[board.level] != null) {
+                    requiremants = board.world.levels[board.level].endGameRequiremants;
+                }
+            }
+        }
+    }
+
     /// <summary>
     /// 初始化
     /// </summary>
@@ -75,7 +89,10 @@ public class EndGameManager : MonoBehaviour {
         board.currentState = GameState.win;
         currentCounterValue = 0;
         counter.text = "" + currentCounterValue;
-        
+
+        FadePanelController fade = FindObjectOfType<FadePanelController>();
+        fade.GameOver();
+
     }
     /// <summary>
     /// 失败

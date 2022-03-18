@@ -65,6 +65,8 @@
     <Compile Include="Assets/Scripts/AudioManager.cs" />
     <Compile Include="Assets/Scripts/CameraScalar.cs" />
     <Compile Include="Assets/Scripts/EndGameManager.cs" />
+    <Compile Include="Assets/Scripts/Scriptable Objects/World.cs" />
+    <Compile Include="Assets/Scripts/Scriptable Objects/Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

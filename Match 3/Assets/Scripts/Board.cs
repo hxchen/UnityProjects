@@ -25,20 +25,29 @@ public class TileType {
 
 public class Board : MonoBehaviour {
 
+    [Header("Scriptable Object Stuff")]
+    public World world;
+    public int level;
+
     public GameState currentState = GameState.move;
+
+    [Header("Board Dimensions")]
     public int width;
     public int height;
     public int offset;
+
+    [Header("Prefabs")]
     public GameObject tilePrefab;
     public GameObject breakableTilePrefab;
+    // 所有样式
+    public GameObject[] dots;
     public GameObject destroyEffect;
+
+    [Header("Layout")]
     // 特殊点
     public TileType[] boardLayout;
     private bool[,] blankSpaces;
     private BackgroundTile[,] breakableTiles;
-    // 所有样式
-    public GameObject[] dots;
-
     public GameObject[,] allDots;
     public Dot currentDot;
     private FindMatches findMatches;
@@ -49,8 +58,22 @@ public class Board : MonoBehaviour {
     private AudioManager audioManager;
     private GoalManager goalManager;
     public float refillDelay = 0.5f;
-    public int[] scoreGoals; 
+    public int[] scoreGoals;
 
+
+    void Awake() {
+        if (world != null) {
+            if (level < world.levels.Length) {
+                if (world.levels[level] != null) {
+                    width = world.levels[level].width;
+                    height = world.levels[level].height;
+                    dots = world.levels[level].dots;
+                    scoreGoals = world.levels[level].scoreGoals;
+                    boardLayout = world.levels[level].boardLayout;
+                }
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start() {
