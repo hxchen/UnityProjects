@@ -54,19 +54,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/HintManager.cs" />
+    <Compile Include="Assets/Scripts/Scriptable Objects/Level.cs" />
     <Compile Include="Assets/Scripts/Board.cs" />
     <Compile Include="Assets/Scripts/GoalManager.cs" />
     <Compile Include="Assets/Scripts/ScoreManager.cs" />
     <Compile Include="Assets/Scripts/GoalPanel.cs" />
+    <Compile Include="Assets/Scripts/EndGameManager.cs" />
     <Compile Include="Assets/Scripts/FadePanelController.cs" />
     <Compile Include="Assets/Scripts/BackgroundTile.cs" />
     <Compile Include="Assets/Scripts/FindMatches.cs" />
+    <Compile Include="Assets/Scripts/Scriptable Objects/World.cs" />
     <Compile Include="Assets/Scripts/Dot.cs" />
     <Compile Include="Assets/Scripts/AudioManager.cs" />
     <Compile Include="Assets/Scripts/CameraScalar.cs" />
-    <Compile Include="Assets/Scripts/EndGameManager.cs" />
-    <Compile Include="Assets/Scripts/Scriptable Objects/World.cs" />
-    <Compile Include="Assets/Scripts/Scriptable Objects/Level.cs" />
+    <Compile Include="Assets/Scripts/UI/LevelButton.cs" />
+    <Compile Include="Assets/Scripts/UI/ConfirmPanel.cs" />
+    <Compile Include="Assets/Scripts/UI/BackToSplash.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
