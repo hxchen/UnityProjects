@@ -28,10 +28,11 @@ public class GameData : MonoBehaviour {
             Debug.Log("Destroy gameobject of game data");
             Destroy(this.gameObject);
         }
+        Load();
     }
 
     void Start() {
-        Load();
+        
     }
     /// <summary>
 	/// 保存数据

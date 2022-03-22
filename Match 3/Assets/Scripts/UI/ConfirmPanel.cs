@@ -11,20 +11,28 @@ public class ConfirmPanel : MonoBehaviour {
 
     public string levelToLoad;
     public Image[] stars;
+    private int starsActive;
     public int level;
+    private GameData gamaData;
 
 
     void Start() {
+        gamaData = FindObjectOfType<GameData>();
+        LoadData();
         ActivateStarts();
     }
 
+    void LoadData() {
+        if (gamaData != null) {
+            starsActive = gamaData.saveData.stars[level - 1];
+        }
+    }
     /// <summary>
     /// 激活星星展示
     /// </summary>
     void ActivateStarts() {
-        // TODO 星级展示
-        for (int i = 0; i < stars.Length; i++) {
-            stars[i].enabled = false;
+        for (int i = 0; i < starsActive; i++) {
+            stars[i].enabled = true;
         }
     }
 
