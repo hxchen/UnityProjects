@@ -1,23 +1,7 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/BackToSplash.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game Data Scripts/GameData.cs">
     <Files>
-      <File FileName="Assets/Scripts/Dot.cs" Line="232" Column="62" />
-      <File FileName="Assets/Scripts/FindMatches.cs" Line="143" Column="17" />
-      <File FileName="Assets/Scripts/CameraScalar.cs" />
-      <File FileName="Assets/Scripts/BackgroundTile.cs" Line="21" Column="43" />
-      <File FileName="Assets/Scripts/HintManager.cs" />
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="27" Column="1" />
-      <File FileName="Assets/Scripts/Board.cs" Line="67" Column="10" />
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="11" Column="41" />
-      <File FileName="Assets/Scripts/FadePanelController.cs" Line="5" Column="33" />
-      <File FileName="Assets/Scripts/GoalManager.cs" Line="33" Column="39" />
-      <File FileName="Assets/Scripts/GoalPanel.cs" Line="21" Column="36" />
-      <File FileName="Assets/Scripts/EndGameManager.cs" Line="30" Column="1" />
-      <File FileName="Assets/Scripts/Scriptable Objects/World.cs" Line="15" Column="16" />
-      <File FileName="Assets/Scripts/Scriptable Objects/Level.cs" Line="22" Column="19" />
-      <File FileName="Assets/Scripts/UI/LevelButton.cs" Line="7" Column="11" />
-      <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" Line="39" Column="44" />
-      <File FileName="Assets/Scripts/UI/BackToSplash.cs" Line="6" Column="5" />
+      <File FileName="Assets/Scripts/Game Data Scripts/GameData.cs" Line="5" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,10 +9,12 @@
           <Node name="Match 3" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Scriptable Objects" expanded="True" />
-                <Node name="UI" expanded="True">
-                  <Node name="BackToSplash.cs" selected="True" />
+                <Node name="Base Game Scripts" expanded="True" />
+                <Node name="Game Data Scripts" expanded="True">
+                  <Node name="GameData.cs" selected="True" />
                 </Node>
+                <Node name="Scriptable Objects" expanded="True" />
+                <Node name="UI" expanded="True" />
               </Node>
             </Node>
           </Node>
