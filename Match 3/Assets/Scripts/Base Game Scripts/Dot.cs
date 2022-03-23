@@ -49,8 +49,9 @@ public class Dot : MonoBehaviour {
         isRowBomb = false;
         isColorBomb = false;
         isAdjacentBomb = false;
-
-        board = FindObjectOfType<Board>();
+        // 更快的方式
+        board = GameObject.FindWithTag("Board").GetComponent<Board>();
+        // board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
         hintManager = FindObjectOfType<HintManager>();
         endGameManager = FindObjectOfType<EndGameManager>();
@@ -272,34 +273,46 @@ public class Dot : MonoBehaviour {
     /// 制作行炸弹点
     /// </summary>
     public void MakeRowBomb() {
-        isRowBomb = true;
-        GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
-        arrow.transform.parent = this.transform;
+        if (!isColumnBomb && !isColorBomb && isAdjacentBomb) {
+            isRowBomb = true;
+            GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
+            arrow.transform.parent = this.transform;
+        }
+        
     }
     /// <summary>
     /// 制作列炸弹点
     /// </summary>
     public void MakeColumnBomb() {
-        isColumnBomb = true;
-        GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
-        arrow.transform.parent = this.transform;
+        if (!isRowBomb && !isColorBomb && !isAdjacentBomb) {
+            isColumnBomb = true;
+            GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
+            arrow.transform.parent = this.transform;
+        }
+        
     }
     /// <summary>
     /// 同颜色炸弹
     /// </summary>
     public void MakeColorBomb() {
-        isColorBomb = true;
-        GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
-        color.transform.parent = this.transform;
-        this.gameObject.tag = "Color";
+        if (!isRowBomb && !isColumnBomb && !isAdjacentBomb) {
+            isColorBomb = true;
+            GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
+            color.transform.parent = this.transform;
+            this.gameObject.tag = "Color";
+        }
+        
     }
     /// <summary>
     /// 相邻炸弹
     /// </summary>
     public void MakeAdjacentBomb() {
-        isAdjacentBomb = true;
-        GameObject bomb = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
-        bomb.transform.parent = this.transform;
+        if (!isRowBomb && !isColumnBomb && !isColorBomb) {
+            isAdjacentBomb = true;
+            GameObject bomb = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
+            bomb.transform.parent = this.transform;
+        }
+        
     }
 
 }

@@ -38,6 +38,7 @@ public class GameData : MonoBehaviour {
 	/// 保存数据
 	/// </summary>
     public void Save() {
+
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream file = File.Open(Application.persistentDataPath + "/player.dat", FileMode.Create);
         SaveData data = new SaveData();
@@ -56,7 +57,17 @@ public class GameData : MonoBehaviour {
             saveData = formatter.Deserialize(file) as SaveData;
             file.Close();
             Debug.Log("Loaded");
+        } else {
+            saveData = new SaveData();
+            saveData.isActive = new bool[100];
+            saveData.stars = new int[100];
+            saveData.highScores = new int[100];
+            saveData.isActive[0] = true; 
         }
+    }
+
+    private void OnApplicationQuit() {
+        Save();
     }
 
     private void OnDisable() {

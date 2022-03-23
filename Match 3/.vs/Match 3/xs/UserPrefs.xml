@@ -1,11 +1,14 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/ScoreManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/FindMatches.cs">
     <Files>
-      <File FileName="Assets/Scripts/Game Data Scripts/GameData.cs" Line="37" Column="18" />
+      <File FileName="Assets/Scripts/Game Data Scripts/GameData.cs" Line="68" Column="1" />
       <File FileName="Assets/Scripts/UI/LevelButton.cs" />
-      <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" Line="31" Column="6" />
+      <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" Line="32" Column="1" />
       <File FileName="Assets/Scripts/UI/BackToSplash.cs" Line="30" Column="1" />
-      <File FileName="Assets/Scripts/Base Game Scripts/ScoreManager.cs" Line="12" Column="23" />
+      <File FileName="Assets/Scripts/Base Game Scripts/ScoreManager.cs" Line="26" Column="38" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="187" Column="56" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="40" Column="1" />
+      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="9" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +17,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Base Game Scripts" expanded="True">
-                  <Node name="ScoreManager.cs" selected="True" />
+                  <Node name="FindMatches.cs" selected="True" />
                 </Node>
                 <Node name="Game Data Scripts" expanded="True" />
                 <Node name="Scriptable Objects" expanded="True" />

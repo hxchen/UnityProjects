@@ -15,6 +15,7 @@ TagManager:
   - Puice Dot
   - Color
   - Breakable
+  - Board
   layers:
   - Default
   - TransparentFX
