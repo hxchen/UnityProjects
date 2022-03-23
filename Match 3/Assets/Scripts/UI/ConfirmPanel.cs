@@ -9,23 +9,40 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class ConfirmPanel : MonoBehaviour {
 
+    [Header("Level Information")]
     public string levelToLoad;
-    public Image[] stars;
-    private int starsActive;
     public int level;
     private GameData gamaData;
+    private int starsActive;
+    private int highScore;
+
+    [Header("UI stuff")]
+    public Image[] stars;
+    public Text highScoreText;
+    public Text starText;
+    
 
 
-    void Start() {
+    void OnEnable() {
         gamaData = FindObjectOfType<GameData>();
         LoadData();
         ActivateStarts();
+        SetText();
     }
 
     void LoadData() {
         if (gamaData != null) {
             starsActive = gamaData.saveData.stars[level - 1];
+            highScore = gamaData.saveData.highScores[level - 1];
         }
+    }
+    /// <summary>
+    /// 填充UI数据
+    /// </summary>
+    void SetText() {
+        highScoreText.text = "" + highScore;
+        starText.text = "" + starsActive + "/3";
+
     }
     /// <summary>
     /// 激活星星展示

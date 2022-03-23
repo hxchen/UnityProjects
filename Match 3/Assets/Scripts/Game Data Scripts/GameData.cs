@@ -37,7 +37,7 @@ public class GameData : MonoBehaviour {
     /// <summary>
 	/// 保存数据
 	/// </summary>
-    void Save() {
+    public void Save() {
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream file = File.Open(Application.persistentDataPath + "/player.dat", FileMode.Create);
         SaveData data = new SaveData();
