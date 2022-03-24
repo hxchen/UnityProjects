@@ -21,7 +21,9 @@
    3. windows打开Animator和Animation。
    4. Animation窗体中创建Animation。
 
-6. 
+6. Animation制作
+
+   1. create new clip
 
    
 
