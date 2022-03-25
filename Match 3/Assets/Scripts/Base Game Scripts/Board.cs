@@ -365,7 +365,10 @@ public class Board : MonoBehaviour {
             //特效
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, 0.5f);
-            Destroy(allDots[column, row]);
+            // 动画播放
+            allDots[column, row].GetComponent<Dot>().PopAnimation();
+            //销毁
+            Destroy(allDots[column, row], 0.5f);
             scoreManager.IncreaseScore(basePieceValue * streakValue);
             allDots[column, row] = null;
         }

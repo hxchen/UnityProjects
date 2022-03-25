@@ -23,7 +23,30 @@
 
 6. Animation制作
 
-   1. create new clip
+   1. 选中GameObject上,create new clip（可以复制使用）
+
+   2. 可以录制XYZ等变化
+
+   3. make transition
+
+   4. parameters（例如设置bool型名为Shine的参数）
+
+   5. 设置transition属性Conditions（例如设置Shine = true）
+
+   6. 定义以及使用
+
+      ```C#
+      // 声明
+      Animator animator;
+      // 实现
+      animator = GetComponent<Animator>();
+      //使用
+      animator.SetBool("Shine", true);
+      ```
+
+      
+
+      
 
    
 

@@ -19,6 +19,11 @@ public class Dot : MonoBehaviour {
     /// 私有变量
     /// </summary>
     ///
+    // 动画
+    private Animator animator;
+    private float shineDelay;
+    private float shineDelaySeconds;
+
     private EndGameManager endGameManager;
     private HintManager hintManager;
     private FindMatches findMatches;
@@ -45,10 +50,16 @@ public class Dot : MonoBehaviour {
 
     private void Start() {
 
+
         isColumnBomb = false;
         isRowBomb = false;
         isColorBomb = false;
         isAdjacentBomb = false;
+
+        // 动画
+        shineDelay = Random.Range(3f, 6f);
+        shineDelaySeconds = shineDelay;
+        animator = GetComponent<Animator>();
         // 更快的方式
         board = GameObject.FindWithTag("Board").GetComponent<Board>();
         // board = FindObjectOfType<Board>();
@@ -83,6 +94,12 @@ public class Dot : MonoBehaviour {
 
 
     private void Update() {
+
+        shineDelaySeconds -= Time.deltaTime;
+        if (shineDelaySeconds <= 0) {
+            shineDelaySeconds = shineDelay;
+            StartCoroutine(StartShineCo());
+        }
         //FindMatches();
         //if (isMatched) {
         //    SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -125,6 +142,10 @@ public class Dot : MonoBehaviour {
 
 
     private void OnMouseDown() {
+        // 动画
+        if (animator != null) {
+            animator.SetBool("Touched", true);
+        }
         // 销毁提示
         if (hintManager != null) {
             hintManager.DestroyHint();
@@ -137,6 +158,9 @@ public class Dot : MonoBehaviour {
     }
 
     private void OnMouseUp() {
+
+        animator.SetBool("Touched", false);
+
         if(board.currentState == GameState.move) {
             finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             CalculateAngle();
@@ -198,6 +222,21 @@ public class Dot : MonoBehaviour {
         }
 
     }
+    /// <summary>
+    /// Shine 动画
+    /// </summary>
+    IEnumerator StartShineCo() {
+        animator.SetBool("Shine", true);
+        yield return null;
+        animator.SetBool("Shine", false);
+    }
+    /// <summary>
+    /// Pop动画
+    /// </summary>
+    public void PopAnimation() {
+        animator.SetBool("Popped", true);
+    }
+
     /// <summary>
     /// 交换后不匹配，等待0.5秒后还原
     /// </summary>

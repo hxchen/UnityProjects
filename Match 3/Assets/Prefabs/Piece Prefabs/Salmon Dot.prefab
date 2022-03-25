@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1397712035101047053}
   - component: {fileID: -6768267467355562159}
   - component: {fileID: -554068160613358178}
+  - component: {fileID: 1851214285}
   m_Layer: 0
   m_Name: Salmon Dot
   m_TagString: Salmon Dot
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d87ce4c43860b4b08b1cb5dbe69ffd4d, type: 3}
-  m_Color: {r: 0.9333334, g: 0.5019608, b: 0.5019608, a: 1}
+  m_Sprite: {fileID: -5682091620870042725, guid: 746baf698a4ef4462b4a83f036f36ab7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,3 +131,22 @@ MonoBehaviour:
   columnArrow: {fileID: 4836436125215505229, guid: 533fe0b4b38524ba7a264a388111fe97, type: 3}
   colorBomb: {fileID: 4793623194127649773, guid: c64cc30a5c6d54d37ada955ddefe64b2, type: 3}
   adjacentMarker: {fileID: 6425339296243172650, guid: 714a23473e4274dcf9ff07e7a0464fb7, type: 3}
+--- !u!95 &1851214285
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397712035101047052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3d488d677c2744249c9c2674f0d845a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
