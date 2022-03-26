@@ -28,8 +28,8 @@ public class Dot : MonoBehaviour {
     private HintManager hintManager;
     private FindMatches findMatches;
     private Board board;
-    private Vector2 firstTouchPosition;
-    private Vector2 finalTouchPosition;
+    private Vector2 firstTouchPosition = Vector2.zero;
+    private Vector2 finalTouchPosition = Vector2.zero;
     private Vector2 tempPosition;
 
     [Header("Swipe Stuff")]
@@ -114,8 +114,8 @@ public class Dot : MonoBehaviour {
             transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
             if (board.allDots[column, row] != this.gameObject) {
                 board.allDots[column, row] = this.gameObject;
+                findMatches.FindAllMatches();
             }
-            findMatches.FindAllMatches();
         } else {
             // 直接设置
             tempPosition = new Vector2(targetX, transform.position.y);
@@ -129,8 +129,9 @@ public class Dot : MonoBehaviour {
             transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
             if (board.allDots[column, row] != this.gameObject) {
                 board.allDots[column, row] = this.gameObject;
+                findMatches.FindAllMatches();
             }
-            findMatches.FindAllMatches();
+            
         } else {
             // 直接设置
             tempPosition = new Vector2(transform.position.x, targetY);
@@ -143,9 +144,9 @@ public class Dot : MonoBehaviour {
 
     private void OnMouseDown() {
         // 动画
-        if (animator != null) {
-            animator.SetBool("Touched", true);
-        }
+        //if (animator != null) {
+        //    animator.SetBool("Touched", true);
+        //}
         // 销毁提示
         if (hintManager != null) {
             hintManager.DestroyHint();
@@ -159,7 +160,7 @@ public class Dot : MonoBehaviour {
 
     private void OnMouseUp() {
 
-        animator.SetBool("Touched", false);
+        //animator.SetBool("Touched", false);
 
         if(board.currentState == GameState.move) {
             finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -349,6 +350,7 @@ public class Dot : MonoBehaviour {
         if (!isRowBomb && !isColumnBomb && !isColorBomb) {
             isAdjacentBomb = true;
             GameObject bomb = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
+            Debug.Log("Adjacent Scale is :" + bomb.transform.localScale);
             bomb.transform.parent = this.transform;
         }
         

@@ -85,7 +85,8 @@ public class FindMatches : MonoBehaviour {
     }
 
     private IEnumerator FindAllMatchesCo() {
-        yield return new WaitForSeconds(0.2f);
+        //  yield return new WaitForSeconds(0.2f);
+        yield return null;
         for (int i = 0; i < board.width; i++) {
             for (int j = 0; j < board.height; j++) {
                 GameObject currentDot = board.allDots[i, j];
@@ -104,7 +105,6 @@ public class FindMatches : MonoBehaviour {
                             currentMatches.Union(IsColumnBomb(leftDotDot, currentDotDot, rightDotDot));
 
                             currentMatches.Union(IsAdjacentBomb(leftDotDot, currentDotDot, rightDotDot));
-
 
                             GetNearbyPieces(leftDot, currentDot, rightDot);
 
@@ -126,11 +126,9 @@ public class FindMatches : MonoBehaviour {
 
                             currentMatches.Union(IsAdjacentBomb(upDotDot, currentDotDot, downDotDot));
 
-
                             GetNearbyPieces(upDot, currentDot, downDot);
                         }
                     }
-
                 }
             }
         }
@@ -221,11 +219,11 @@ public class FindMatches : MonoBehaviour {
         return dots;
     }
 
-    public void CheckBombs() {
+    public void CheckBombs(MatchType matchType) {
         // 玩家在移动？
         if (board.currentDot != null) {
             // 移动的点是匹配的？
-            if (board.currentDot.isMatched) {
+            if (board.currentDot.isMatched && board.currentDot.tag == matchType.color) {
                 // 设置不匹配
                 board.currentDot.isMatched = false;
                 
@@ -239,7 +237,7 @@ public class FindMatches : MonoBehaviour {
             } else if(board.currentDot.otherDot != null){
                 // 另一个点匹配
                 Dot otherDot = board.currentDot.otherDot.GetComponent<Dot>();
-                if (otherDot.isMatched) {
+                if (otherDot.isMatched && otherDot.tag == matchType.color) {
                     otherDot.isMatched = false;
                     
                     if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45)

@@ -1,15 +1,9 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/Dot.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/FindMatches.cs">
     <Files>
-      <File FileName="Assets/Scripts/Game Data Scripts/GameData.cs" Line="68" Column="1" />
-      <File FileName="Assets/Scripts/UI/LevelButton.cs" />
-      <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" Line="32" Column="1" />
-      <File FileName="Assets/Scripts/UI/BackToSplash.cs" Line="30" Column="1" />
-      <File FileName="Assets/Scripts/Base Game Scripts/ScoreManager.cs" Line="26" Column="38" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="370" Column="17" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="161" Column="1" />
-      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="237" Column="50" />
-      <File FileName="Assets/Scripts/Base Game Scripts/HintManager.cs" Line="69" Column="51" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="351" Column="57" />
+      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="233" Column="47" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +12,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Base Game Scripts" expanded="True">
-                  <Node name="Dot.cs" selected="True" />
+                  <Node name="FindMatches.cs" selected="True" />
                 </Node>
                 <Node name="Game Data Scripts" expanded="True" />
                 <Node name="Scriptable Objects" expanded="True" />
@@ -32,7 +26,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e931ef6e-380d-4fe4-a260-dd5287c522e4" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4ffd658e-e1be-4faa-958f-a8fc51978ece" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
