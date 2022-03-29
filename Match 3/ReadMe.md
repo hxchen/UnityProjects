@@ -85,13 +85,13 @@
 
    8. 编辑Board，Prefabs关联Lock Tile Prefab
 
-   9. Board.cs Start方法增加初始化
+   9. `Board.cs Start` 方法增加初始化
 
       ```c#
       lockTiles = new BackgroundTile[width, height];
       ```
 
-   10. Board.cs 增加初始化调用
+   10. `Board.cs`  增加初始化调用
 
        ```c#
        GenerateLockTiles();
