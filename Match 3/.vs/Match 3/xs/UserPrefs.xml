@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/FindMatches.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/HintManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="351" Column="57" />
-      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="233" Column="47" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="40" Column="21" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="225" Column="17" />
+      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="240" Column="71" />
+      <File FileName="Assets/Scripts/Base Game Scripts/HintManager.cs" Line="37" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +13,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Base Game Scripts" expanded="True">
-                  <Node name="FindMatches.cs" selected="True" />
+                  <Node name="HintManager.cs" selected="True" />
                 </Node>
                 <Node name="Game Data Scripts" expanded="True" />
                 <Node name="Scriptable Objects" expanded="True" />

@@ -44,13 +44,62 @@
       animator.SetBool("Shine", true);
       ```
 
-      
+7. 增加新的瓦片类型Lock
 
-      
+   1. 添加图片资源并设置相关属性(单位像素)
 
-   
+   2. 在Breakable Tile基础之上重新制作瓦片,设置Sprite.
 
-7. 
+   3. 设置Order in Layer
 
-8. 
+   4. 制作成预制件
+
+   5. 脚本文件`Board.cs`中`TileKind`增加新的类型`Lock` ，
+
+      `[Header("Prefabs")]`声明增加
+
+      ```c#
+      public GameObject lockTilePrefab;
+      ```
+
+      `[Header("Layout")]`声明增加
+
+      ```c#
+      public BackgroundTile[,] lockTiles;
+
+   6. 初始化新类型瓦片
+
+      ```c#
+      public void GenerateLockTiles() {
+              for (int i = 0; i < boardLayout.Length; i++) {
+                  if (boardLayout[i].tileKind == TileKind.Lock) {
+                      Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
+                      GameObject tile = Instantiate(lockTilePrefab, tempPosition, Quaternion.identity);
+                      lockTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+                  }
+              }
+          }
+      ```
+
+   7. 编辑Level模板，Board Layout 添加新的点位为新类型
+
+   8. 编辑Board，Prefabs关联Lock Tile Prefab
+
+   9. Board.cs Start方法增加初始化
+
+      ```c#
+      lockTiles = new BackgroundTile[width, height];
+      ```
+
+   10. Board.cs 增加初始化调用
+
+       ```c#
+       GenerateLockTiles();
+       ```
+
+   11. 运行Unity查看
+
+   12. `Dot.cs`功能实现，`MovePiecesActual`增加移动检查
+
+   13. `Board.cs`功能实现，`DestroyMatchesAt` 增加`Lock`检查
 

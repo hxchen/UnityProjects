@@ -15,15 +15,18 @@ MonoBehaviour:
   width: 6
   height: 8
   boardLayout:
-  - x: 0
-    y: 0
-    tileKind: 0
-  - x: 0
-    y: 0
-    tileKind: 0
-  - x: 0
-    y: 0
-    tileKind: 0
+  - x: 3
+    y: 3
+    tileKind: 2
+  - x: 3
+    y: 4
+    tileKind: 2
+  - x: 4
+    y: 3
+    tileKind: 2
+  - x: 4
+    y: 4
+    tileKind: 2
   dots:
   - {fileID: 4836120349288575830, guid: 831ec32b7e9a94449a7026daffe14d9c, type: 3}
   - {fileID: 8157448159887613530, guid: 14e799e30c83646f78585c0ef9669594, type: 3}

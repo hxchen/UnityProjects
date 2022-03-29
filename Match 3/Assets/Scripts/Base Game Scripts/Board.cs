@@ -13,6 +13,9 @@ public enum GameState {
 public enum TileKind {
     Breakable,
     Blank,
+    Lock,
+    Concreate,
+    Slime,
     Normal
 }
 
@@ -46,6 +49,7 @@ public class Board : MonoBehaviour {
     [Header("Prefabs")]
     public GameObject tilePrefab;
     public GameObject breakableTilePrefab;
+    public GameObject lockTilePrefab;
     // 所有样式
     public GameObject[] dots;
     public GameObject destroyEffect;
@@ -55,6 +59,7 @@ public class Board : MonoBehaviour {
     public TileType[] boardLayout;
     private bool[,] blankSpaces;
     private BackgroundTile[,] breakableTiles;
+    public BackgroundTile[,] lockTiles;
     public GameObject[,] allDots;
 
     [Header("Match Stuff")]
@@ -94,6 +99,7 @@ public class Board : MonoBehaviour {
         audioManager = FindObjectOfType<AudioManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
         breakableTiles = new BackgroundTile[width, height];
+        lockTiles = new BackgroundTile[width, height];
         findMatches = FindObjectOfType<FindMatches>();
         blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
@@ -123,12 +129,26 @@ public class Board : MonoBehaviour {
             }
         }
     }
+    /// <summary>
+    /// 生成锁定瓦片
+    /// </summary>
+    public void GenerateLockTiles() {
+        for (int i = 0; i < boardLayout.Length; i++) {
+            if (boardLayout[i].tileKind == TileKind.Lock) {
+                Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
+                GameObject tile = Instantiate(lockTilePrefab, tempPosition, Quaternion.identity);
+                lockTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+            }
+        }
+    }
 
     private void SetUp() {
         // 生成空白点
         GenerateBlankSpaces();
         // 生成果冻点
         GenerateBreakableTiles();
+        // 生成Lock
+        GenerateLockTiles();
 
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
@@ -300,6 +320,13 @@ public class Board : MonoBehaviour {
                 breakableTiles[column, row].TakeDamage(1);
                 if (breakableTiles[column, row].hitPoints <= 0) {
                     breakableTiles[column, row] = null;
+                }
+            }
+            // 检查是否是Lock瓦片
+            if (lockTiles[column, row] != null) {
+                lockTiles[column, row].TakeDamage(1);
+                if (lockTiles[column, row].hitPoints <= 0) {
+                    lockTiles[column, row] = null;
                 }
             }
             // 目标

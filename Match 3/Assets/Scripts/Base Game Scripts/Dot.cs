@@ -211,17 +211,20 @@ public class Dot : MonoBehaviour {
         otherDot = board.allDots[column + (int)direction.x, row + (int)direction.y];
         previousRow = row;
         previousColumn = column;
-        if (otherDot != null) {
-            otherDot.GetComponent<Dot>().column -= 1 * (int)direction.x;
-            otherDot.GetComponent<Dot>().row -= 1 * (int)direction.y;
-            column += (int)direction.x;
-            row += (int)direction.y;
-            //协同程序
-            StartCoroutine(CheckMoveCo());
+        if (board.lockTiles[column, row] == null && board.lockTiles[column + (int)direction.x, row + (int)direction.y] == null) {
+            if (otherDot != null) {
+                otherDot.GetComponent<Dot>().column -= 1 * (int)direction.x;
+                otherDot.GetComponent<Dot>().row -= 1 * (int)direction.y;
+                column += (int)direction.x;
+                row += (int)direction.y;
+                //协同程序
+                StartCoroutine(CheckMoveCo());
+            } else {
+                board.currentState = GameState.move;
+            }
         } else {
             board.currentState = GameState.move;
         }
-
     }
     /// <summary>
     /// Shine 动画
