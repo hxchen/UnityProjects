@@ -17,16 +17,16 @@ MonoBehaviour:
   boardLayout:
   - x: 3
     y: 3
-    tileKind: 2
+    tileKind: 3
   - x: 3
     y: 4
-    tileKind: 2
+    tileKind: 3
   - x: 4
     y: 3
-    tileKind: 2
+    tileKind: 3
   - x: 4
     y: 4
-    tileKind: 2
+    tileKind: 3
   dots:
   - {fileID: 4836120349288575830, guid: 831ec32b7e9a94449a7026daffe14d9c, type: 3}
   - {fileID: 8157448159887613530, guid: 14e799e30c83646f78585c0ef9669594, type: 3}
@@ -39,7 +39,7 @@ MonoBehaviour:
     counterValue: 100
   levelGoals:
   - numberNeeded: 2
-    numberCollected: 0
+    numberCollected: 2
     goalSprite: {fileID: 21300000, guid: b0c67e4bf68054bb4a6d0e950c2454aa, type: 3}
     matchValue: Indigo Dot
   - numberNeeded: 5

@@ -48,7 +48,7 @@
 
    1. 添加图片资源并设置相关属性(单位像素)
 
-   2. 在Breakable Tile基础之上重新制作瓦片,设置Sprite.
+   2. 在Breakable Tile基础（Unpack Prefab）之上重新制作瓦片,设置Sprite.
 
    3. 设置Order in Layer
 

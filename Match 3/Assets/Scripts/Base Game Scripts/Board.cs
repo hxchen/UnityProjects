@@ -50,6 +50,7 @@ public class Board : MonoBehaviour {
     public GameObject tilePrefab;
     public GameObject breakableTilePrefab;
     public GameObject lockTilePrefab;
+    public GameObject concreateTilePrefab;
     // 所有样式
     public GameObject[] dots;
     public GameObject destroyEffect;
@@ -60,6 +61,7 @@ public class Board : MonoBehaviour {
     private bool[,] blankSpaces;
     private BackgroundTile[,] breakableTiles;
     public BackgroundTile[,] lockTiles;
+    public BackgroundTile[,] concreateTiles;
     public GameObject[,] allDots;
 
     [Header("Match Stuff")]
@@ -100,6 +102,7 @@ public class Board : MonoBehaviour {
         scoreManager = FindObjectOfType<ScoreManager>();
         breakableTiles = new BackgroundTile[width, height];
         lockTiles = new BackgroundTile[width, height];
+        concreateTiles = new BackgroundTile[width, height];
         findMatches = FindObjectOfType<FindMatches>();
         blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
@@ -142,6 +145,19 @@ public class Board : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 生成Concreate瓦片
+    /// </summary>
+    public void GenerateConcreateTiles() {
+        for (int i = 0; i < boardLayout.Length; i++) {
+            if (boardLayout[i].tileKind == TileKind.Concreate) {
+                Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
+                GameObject tile = Instantiate(concreateTilePrefab, tempPosition, Quaternion.identity);
+                concreateTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+            }
+        }
+    }
+
     private void SetUp() {
         // 生成空白点
         GenerateBlankSpaces();
@@ -149,10 +165,12 @@ public class Board : MonoBehaviour {
         GenerateBreakableTiles();
         // 生成Lock
         GenerateLockTiles();
+        // 生成Concreate
+        GenerateConcreateTiles();
 
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (!blankSpaces[i, j]) {
+                if (!blankSpaces[i, j] && !concreateTiles[i, j]) {
                     Vector2 tempPostion = new Vector2(i, j + offset);
                     Vector2 tilePosition = new Vector2(i, j);
                     GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
@@ -329,6 +347,8 @@ public class Board : MonoBehaviour {
                     lockTiles[column, row] = null;
                 }
             }
+            // 检查并破坏周围的Concreate块
+            DamageConcreate(column, row);
             // 目标
             if (goalManager != null) {
                 goalManager.CompareGoal(allDots[column, row].tag.ToString());
@@ -368,6 +388,49 @@ public class Board : MonoBehaviour {
         }
         
         StartCoroutine(DecreaseRowCo2());
+    }
+
+    /// <summary>
+    /// 破除所在位置周边的Concreate块
+    /// </summary>
+    /// <param name="column"></param>
+    /// <param name=""></param>
+    private void DamageConcreate(int column, int row) {
+        if (column > 0) {
+            if (concreateTiles[column - 1, row]) {
+                concreateTiles[column - 1, row].TakeDamage(1);
+                if (concreateTiles[column - 1, row].hitPoints <= 0) {
+                    concreateTiles[column - 1, row] = null;
+                }
+            }
+        }
+
+        if (column < width -1) {
+            if (concreateTiles[column + 1, row]) {
+                concreateTiles[column + 1, row].TakeDamage(1);
+                if (concreateTiles[column + 1, row].hitPoints <= 0) {
+                    concreateTiles[column + 1, row] = null;
+                }
+            }
+        }
+
+        if (row > 0) {
+            if (concreateTiles[column, row - 1]) {
+                concreateTiles[column, row - 1].TakeDamage(1);
+                if (concreateTiles[column, row - 1].hitPoints <= 0) {
+                    concreateTiles[column, row - 1] = null;
+                }
+            }
+        }
+
+        if (row < height - 1) {
+            if (concreateTiles[column, row + 1]) {
+                concreateTiles[column, row + 1].TakeDamage(1);
+                if (concreateTiles[column, row + 1].hitPoints <= 0) {
+                    concreateTiles[column, row + 1] = null;
+                }
+            }
+        }
     }
 
     private IEnumerator DecreaseRowCo2() {
