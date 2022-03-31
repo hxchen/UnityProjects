@@ -321,6 +321,34 @@ public class Board : MonoBehaviour {
             }
         }
     }
+
+    public void BombRow(int row) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (concreateTiles[i, j]) {
+                    concreateTiles[i, row].TakeDamage(1);
+                    if (concreateTiles[i, row].hitPoints <= 0) {
+                        concreateTiles[i, row] = null;
+                    }
+                }
+            }
+        }
+    }
+
+    public void BombColumn(int column) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (concreateTiles[i, j]) {
+                    concreateTiles[column, i].TakeDamage(1);
+                    if (concreateTiles[column, i].hitPoints <= 0) {
+                        concreateTiles[column, i] = null;
+                    }
+                }
+            }
+        }
+    }
+
+
     /// <summary>
     /// 消除
     /// </summary>
@@ -436,7 +464,7 @@ public class Board : MonoBehaviour {
     private IEnumerator DecreaseRowCo2() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (!blankSpaces[i, j] && allDots[i, j] == null) {
+                if (!blankSpaces[i, j] && allDots[i, j] == null && !concreateTiles[i, j]) {
                     for (int k = j + 1; k < height; k++) {
                         if (allDots[i, k] != null) {
                             allDots[i, k].GetComponent<Dot>().row = j;
@@ -474,7 +502,7 @@ public class Board : MonoBehaviour {
     private void RefillBoard() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (allDots[i, j] == null && !blankSpaces[i, j]) {
+                if (allDots[i, j] == null && !blankSpaces[i, j] && !concreateTiles[i, j]) {
                     Vector2 tempPosition = new Vector2(i, j + offset);
                     int dotToUse = Random.Range(0, dots.Length);
 
@@ -536,12 +564,15 @@ public class Board : MonoBehaviour {
     /// <param name="row"></param>
     /// <param name="direction"></param>
     private void SwitchPiece(int column, int row, Vector2 direction) {
-        // 保存第二个点
-        GameObject holder = allDots[column + (int) direction.x, row + (int) direction.y] as GameObject;
-        // 第一个点替换到第二个点
-        allDots[column + (int)direction.x, row + (int)direction.y] = allDots[column, row];
-        // 第二个点替换第一个点
-        allDots[column, row] = holder;
+        if (allDots[column + (int)direction.x, row + (int)direction.y] != null) {
+            // 保存第二个点
+            GameObject holder = allDots[column + (int)direction.x, row + (int)direction.y] as GameObject;
+            // 第一个点替换到第二个点
+            allDots[column + (int)direction.x, row + (int)direction.y] = allDots[column, row];
+            // 第二个点替换第一个点
+            allDots[column, row] = holder;
+        }
+        
     }
     /// <summary>
     /// 检查是否有可消除元素
@@ -633,7 +664,7 @@ public class Board : MonoBehaviour {
         // 重新随机设置元素点
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (!blankSpaces[i, j]) {
+                if (!blankSpaces[i, j] && !concreateTiles[i, j]) {
                     int pieceToUse = Random.Range(0, newBoard.Count);
 
                     int maxIterations = 0;  // 防止样式太少时，无限循环

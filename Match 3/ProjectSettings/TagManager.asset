@@ -17,6 +17,8 @@ TagManager:
   - Breakable
   - Board
   - Concreate
+  - Chocolate
+  - Lock
   layers:
   - Default
   - TransparentFX
