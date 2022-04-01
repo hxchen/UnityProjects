@@ -62,6 +62,7 @@ public class ConfirmPanel : MonoBehaviour {
     /// </summary>
     public void Play() {
         PlayerPrefs.SetInt("Current Level", level - 1);
+        Debug.Log("ConfirmPanel:Play = " + levelToLoad);
         SceneManager.LoadScene(levelToLoad);
     }
 }

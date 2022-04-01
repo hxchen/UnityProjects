@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa9e3e38b8c494eb0acc7a42d67c8c, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  width: 8
+  height: 10
+  boardLayout:
+  - x: 0
+    y: 1
+    tileKind: 4
+  - x: 0
+    y: 2
+    tileKind: 4
+  - x: 0
+    y: 3
+    tileKind: 4
+  - x: 1
+    y: 1
+    tileKind: 4
+  - x: 1
+    y: 2
+    tileKind: 4
+  - x: 1
+    y: 3
+    tileKind: 4
+  - x: 1
+    y: 4
+    tileKind: 4
+  - x: 1
+    y: 5
+    tileKind: 4
+  - x: 2
+    y: 1
+    tileKind: 4
+  - x: 2
+    y: 2
+    tileKind: 4
+  - x: 2
+    y: 3
+    tileKind: 4
+  - x: 2
+    y: 4
+    tileKind: 4
+  - x: 2
+    y: 5
+    tileKind: 4
+  - x: 3
+    y: 4
+    tileKind: 4
+  - x: 3
+    y: 5
+    tileKind: 4
+  - x: 4
+    y: 4
+    tileKind: 4
+  - x: 4
+    y: 5
+    tileKind: 4
+  - x: 5
+    y: 4
+    tileKind: 4
+  - x: 5
+    y: 5
+    tileKind: 4
+  - x: 6
+    y: 4
+    tileKind: 4
+  - x: 6
+    y: 5
+    tileKind: 4
+  dots:
+  - {fileID: 4836120349288575830, guid: 831ec32b7e9a94449a7026daffe14d9c, type: 3}
+  - {fileID: 6313001720200743090, guid: f37ece4c4afda42788048fbaa817f784, type: 3}
+  - {fileID: 2835141807575693413, guid: c502811b340564714acfd68d11684482, type: 3}
+  - {fileID: 6669035609340448304, guid: f57d4e6e82ff64ba8977e9f53c8732ee, type: 3}
+  scoreGoals: e8030000d0070000b80b0000
+  endGameRequiremants:
+    gameType: 0
+    counterValue: 100
+  levelGoals:
+  - numberNeeded: 5
+    numberCollected: 0
+    goalSprite: {fileID: -3341713634967663010, guid: 746baf698a4ef4462b4a83f036f36ab7, type: 3}
+    matchValue: Dark Green Dot

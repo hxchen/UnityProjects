@@ -47,7 +47,7 @@ public class LevelButton : MonoBehaviour {
             }
             //星级展示
             starsActive = gameData.saveData.stars[level - 1];
-            Debug.Log("level = " + level + ", stars = " + starsActive);
+            //Debug.Log("level = " + level + ", stars = " + starsActive);
 
         }
     }
