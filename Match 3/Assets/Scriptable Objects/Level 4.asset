@@ -17,55 +17,55 @@ MonoBehaviour:
   boardLayout:
   - x: 0
     y: 1
-    tileKind: 4
+    tileKind: 3
   - x: 0
     y: 2
-    tileKind: 4
+    tileKind: 3
   - x: 0
     y: 3
-    tileKind: 4
+    tileKind: 3
   - x: 1
     y: 1
-    tileKind: 4
+    tileKind: 3
   - x: 1
     y: 2
-    tileKind: 4
+    tileKind: 3
   - x: 1
     y: 3
-    tileKind: 4
+    tileKind: 3
   - x: 1
     y: 4
-    tileKind: 4
+    tileKind: 3
   - x: 1
     y: 5
-    tileKind: 4
+    tileKind: 3
   - x: 2
     y: 1
-    tileKind: 4
+    tileKind: 3
   - x: 2
     y: 2
-    tileKind: 4
+    tileKind: 3
   - x: 2
     y: 3
-    tileKind: 4
+    tileKind: 3
   - x: 2
     y: 4
-    tileKind: 4
+    tileKind: 3
   - x: 2
     y: 5
-    tileKind: 4
+    tileKind: 3
   - x: 3
     y: 4
-    tileKind: 4
+    tileKind: 3
   - x: 3
     y: 5
-    tileKind: 4
+    tileKind: 3
   - x: 4
     y: 4
-    tileKind: 4
+    tileKind: 3
   - x: 4
     y: 5
-    tileKind: 4
+    tileKind: 3
   - x: 5
     y: 4
     tileKind: 4
