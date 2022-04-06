@@ -58,6 +58,7 @@
     <Compile Include="Assets/Scripts/Base Game Scripts/Board.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/GoalManager.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/ScoreManager.cs" />
+    <Compile Include="Assets/Scripts/Game Data Scripts/GameData.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/GoalPanel.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/EndGameManager.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/FadePanelController.cs" />
@@ -65,12 +66,12 @@
     <Compile Include="Assets/Scripts/Base Game Scripts/FindMatches.cs" />
     <Compile Include="Assets/Scripts/Scriptable Objects/World.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/Dot.cs" />
+    <Compile Include="Assets/Scripts/UI/ConfirmPanel.cs" />
+    <Compile Include="Assets/Scripts/UI/LevelButton.cs" />
+    <Compile Include="Assets/Scripts/UI/BackToSplash.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/AudioManager.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/CameraScalar.cs" />
-    <Compile Include="Assets/Scripts/UI/LevelButton.cs" />
-    <Compile Include="Assets/Scripts/UI/ConfirmPanel.cs" />
-    <Compile Include="Assets/Scripts/UI/BackToSplash.cs" />
-    <Compile Include="Assets/Scripts/Game Data Scripts/GameData.cs" />
+    <Compile Include="Assets/Scripts/UI/PauseManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1,17 +1,9 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/ConfirmPanel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/AudioManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="99" Column="44" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="108" Column="26" />
-      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="42" Column="1" />
-      <File FileName="Assets/Scripts/Base Game Scripts/HintManager.cs" Line="43" Column="22" />
-      <File FileName="Assets/Scripts/Base Game Scripts/BackgroundTile.cs" Line="5" Column="14" />
-      <File FileName="Assets/Scripts/Scriptable Objects/Level.cs" Line="24" Column="1" />
-      <File FileName="Assets/Scripts/Scriptable Objects/World.cs" Line="17" Column="1" />
-      <File FileName="Assets/Scripts/Base Game Scripts/FadePanelController.cs" Line="28" Column="6" />
-      <File FileName="Assets/Scripts/Base Game Scripts/GoalManager.cs" Line="19" Column="39" />
-      <File FileName="Assets/Scripts/UI/LevelButton.cs" Line="19" Column="26" />
-      <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" Line="22" Column="26" />
+      <File FileName="Assets/Scripts/UI/PauseManager.cs" Line="59" Column="44" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="617" Column="20" />
+      <File FileName="Assets/Scripts/Base Game Scripts/AudioManager.cs" Line="14" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,12 +11,12 @@
           <Node name="Match 3" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Base Game Scripts" expanded="True" />
+                <Node name="Base Game Scripts" expanded="True">
+                  <Node name="AudioManager.cs" selected="True" />
+                </Node>
                 <Node name="Game Data Scripts" expanded="True" />
                 <Node name="Scriptable Objects" expanded="True" />
-                <Node name="UI" expanded="True">
-                  <Node name="ConfirmPanel.cs" selected="True" />
-                </Node>
+                <Node name="UI" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -34,7 +26,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4ffd658e-e1be-4faa-958f-a8fc51978ece" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d4d2af62-35c2-423c-bf9f-486a57192e83" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

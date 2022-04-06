@@ -619,7 +619,10 @@ public class Board : MonoBehaviour {
             Debug.Log("Dead Locked!!!");
             StartCoroutine(ShuffleBoard());
         }
-        currentState = GameState.move;
+        if (currentState != GameState.pause) {
+            currentState = GameState.move;
+        }
+        
         makeSlime = true;
         streakValue = 1;
     }

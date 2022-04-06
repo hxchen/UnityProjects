@@ -7,7 +7,14 @@ public class AudioManager : MonoBehaviour
     public AudioSource[] destroyNoise;
 
     public void PlayRandomDestroyNoise() {
-        int clipToPlay = Random.Range(0, destroyNoise.Length);
-        destroyNoise[clipToPlay].Play();
+        if (PlayerPrefs.HasKey("Sound")) {
+            if (PlayerPrefs.GetInt("Sound") == 1) {
+                int clipToPlay = Random.Range(0, destroyNoise.Length);
+                destroyNoise[clipToPlay].Play();
+            }
+        } else {
+            int clipToPlay = Random.Range(0, destroyNoise.Length);
+            destroyNoise[clipToPlay].Play();
+        }
     }
 }
