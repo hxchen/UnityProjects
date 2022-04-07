@@ -72,6 +72,7 @@
     <Compile Include="Assets/Scripts/Base Game Scripts/AudioManager.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/CameraScalar.cs" />
     <Compile Include="Assets/Scripts/UI/PauseManager.cs" />
+    <Compile Include="Assets/Scripts/UI/GameStartManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
