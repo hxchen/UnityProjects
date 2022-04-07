@@ -12,9 +12,13 @@ public class PauseManager : MonoBehaviour {
     public Image soundButton;
     public Sprite musicOnSprite;
     public Sprite musicOffSprite;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start() {
+        audioManager = FindObjectOfType<AudioManager>();
+        board = GameObject.FindWithTag("Board").GetComponent<Board>();
+        pausePanel.SetActive(false);
         // 用户 Prefs里， Sound的KEY 管理声音
         // sound == 0，静音；sound == 1，开启声音
         if (PlayerPrefs.HasKey("Sound")) {
@@ -26,9 +30,6 @@ public class PauseManager : MonoBehaviour {
         } else {
             soundButton.sprite = musicOnSprite;
         }
-
-        pausePanel.SetActive(false);
-        board = GameObject.FindWithTag("Board").GetComponent<Board>();
     }
 
     // Update is called once per frame
@@ -50,13 +51,16 @@ public class PauseManager : MonoBehaviour {
             if (PlayerPrefs.GetInt("Sound") == 0) {
                 soundButton.sprite = musicOnSprite;
                 PlayerPrefs.SetInt("Sound", 1);
+                audioManager.adjustVolumn();
             } else {
                 soundButton.sprite = musicOffSprite;
                 PlayerPrefs.SetInt("Sound", 0);
+                audioManager.adjustVolumn();
             }
         } else {
             soundButton.sprite = musicOffSprite;
             PlayerPrefs.SetInt("Sound", 1);
+            audioManager.adjustVolumn();
         }
     }
     // 暂停

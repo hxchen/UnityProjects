@@ -301,7 +301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 29734683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 378897638}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: SoundButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &29734683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,6 +865,7 @@ MonoBehaviour:
   destroyNoise:
   - {fileID: 1383385875}
   - {fileID: 861893913}
+  backgroundMusic: {fileID: 1284382552}
 --- !u!1 &291035564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1024,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 12944465}
   paused: 0
+  soundButton: {fileID: 29734683}
+  musicOnSprite: {fileID: 21300000, guid: 0f5ededc40bb542c68c76e142af06485, type: 3}
+  musicOffSprite: {fileID: 21300000, guid: bddf01a3b38d54e38a73ed0faf1432cc, type: 3}
 --- !u!1 &403004535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1356,7 @@ RectTransform:
   - {fileID: 1213198210}
   - {fileID: 1930743038}
   m_Father: {fileID: 2083677052}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3394,7 +3410,7 @@ RectTransform:
   m_Children:
   - {fileID: 12944466}
   m_Father: {fileID: 2083677052}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3977,8 +3993,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 569444746}
   - {fileID: 1761811200}
+  - {fileID: 569444746}
   - {fileID: 590207810}
   m_Father: {fileID: 0}
   m_RootOrder: 5
