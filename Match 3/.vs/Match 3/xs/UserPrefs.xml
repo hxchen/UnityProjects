@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/GameStartManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/ScoreManager.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/PauseManager.cs" Line="63" Column="41" />
       <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="617" Column="20" />
       <File FileName="Assets/Scripts/Base Game Scripts/AudioManager.cs" Line="24" Column="17" />
-      <File FileName="Assets/Scripts/UI/GameStartManager.cs" Line="12" Column="19" />
+      <File FileName="Assets/Scripts/UI/GameStartManager.cs" Line="22" Column="36" />
+      <File FileName="Assets/Scripts/Base Game Scripts/ScoreManager.cs" Line="17" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,12 +13,12 @@
           <Node name="Match 3" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Base Game Scripts" expanded="True" />
+                <Node name="Base Game Scripts" expanded="True">
+                  <Node name="ScoreManager.cs" selected="True" />
+                </Node>
                 <Node name="Game Data Scripts" expanded="True" />
                 <Node name="Scriptable Objects" expanded="True" />
-                <Node name="UI" expanded="True">
-                  <Node name="GameStartManager.cs" selected="True" />
-                </Node>
+                <Node name="UI" expanded="True" />
               </Node>
             </Node>
           </Node>
