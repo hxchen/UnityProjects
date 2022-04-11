@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/Base Game Scripts/HintManager.cs" />
     <Compile Include="Assets/Scripts/Scriptable Objects/Level.cs" />
+    <Compile Include="Assets/Scripts/UI/GameStartManager.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/Board.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/GoalManager.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/ScoreManager.cs" />
@@ -70,9 +71,9 @@
     <Compile Include="Assets/Scripts/UI/LevelButton.cs" />
     <Compile Include="Assets/Scripts/UI/BackToSplash.cs" />
     <Compile Include="Assets/Scripts/Base Game Scripts/AudioManager.cs" />
-    <Compile Include="Assets/Scripts/Base Game Scripts/CameraScalar.cs" />
     <Compile Include="Assets/Scripts/UI/PauseManager.cs" />
-    <Compile Include="Assets/Scripts/UI/GameStartManager.cs" />
+    <Compile Include="Assets/Scripts/Base Game Scripts/CameraScalar.cs" />
+    <Compile Include="Assets/Scripts/UI/LevelSelectManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
