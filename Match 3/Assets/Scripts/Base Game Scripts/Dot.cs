@@ -82,13 +82,19 @@ public class Dot : MonoBehaviour {
         if (Input.GetMouseButtonDown(1)) {
             //isColumnBomb = true;
             //GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
+            //arrow.transform.parent = this.transform;
+
             //isRowBomb = true;
             //GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
-            //isColorBomb = true;
-            //GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
-            isAdjacentBomb = true;
-            GameObject bomb = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
-            bomb.transform.parent = this.transform;
+            //arrow.transform.parent = this.transform;
+
+            isColorBomb = true;
+            GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
+            color.transform.parent = this.transform;
+
+            //isAdjacentBomb = true;
+            //GameObject bomb = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
+            //bomb.transform.parent = this.transform;
         }
     }
 

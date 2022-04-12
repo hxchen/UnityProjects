@@ -94,7 +94,7 @@ public class FindMatches : MonoBehaviour {
 
     private IEnumerator FindAllMatchesCo() {
         //  yield return new WaitForSeconds(0.2f);
-        yield return null;
+        
         for (int i = 0; i < board.width; i++) {
             for (int j = 0; j < board.height; j++) {
                 GameObject currentDot = board.allDots[i, j];
@@ -140,6 +140,7 @@ public class FindMatches : MonoBehaviour {
                 }
             }
         }
+        yield return null;
     }
 
     /// <summary>

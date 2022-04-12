@@ -134,6 +134,8 @@ public class Board : MonoBehaviour {
                 Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
                 GameObject tile = Instantiate(breakableTilePrefab, tempPosition, Quaternion.identity);
                 breakableTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+                //设置父类
+                tile.transform.parent = this.transform;
             }
         }
     }
@@ -146,6 +148,11 @@ public class Board : MonoBehaviour {
                 Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
                 GameObject tile = Instantiate(lockTilePrefab, tempPosition, Quaternion.identity);
                 lockTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+                //设置父类
+                tile.transform.parent = this.transform;
+                // 设置名称
+                //tile.name = "( " + boardLayout[i].x + ", " + boardLayout[i].y + " )-tile";
+
             }
         }
     }
@@ -159,6 +166,10 @@ public class Board : MonoBehaviour {
                 Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
                 GameObject tile = Instantiate(concreateTilePrefab, tempPosition, Quaternion.identity);
                 concreateTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+                //设置父类
+                tile.transform.parent = this.transform;
+                // 设置名称
+                //tile.name = "( " + boardLayout[i].x + ", " + boardLayout[i].y + " )-tile";
             }
         }
     }
@@ -171,6 +182,10 @@ public class Board : MonoBehaviour {
                 Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
                 GameObject tile = Instantiate(slimePiecePrefab, tempPosition, Quaternion.identity);
                 slimeTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+                //设置父类
+                tile.transform.parent = this.transform;
+                // 设置名称
+                //tile.name = "( " + boardLayout[i].x + ", " + boardLayout[i].y + " )-tile";
             }
         }
     }
@@ -194,7 +209,7 @@ public class Board : MonoBehaviour {
                     Vector2 tilePosition = new Vector2(i, j);
                     GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
                     backgroundTile.transform.parent = this.transform;
-                    backgroundTile.name = "( " + i + ", " + j + " )";
+                    //backgroundTile.name = "( " + i + ", " + j + " )-tile";
 
                     int dotToUse = Random.Range(0, dots.Length);
                     // 检查不能有可消除dots
@@ -207,7 +222,7 @@ public class Board : MonoBehaviour {
                     GameObject dot = Instantiate(dots[dotToUse], tempPostion, Quaternion.identity);
                     dot.GetComponent<Dot>().row = j;
                     dot.GetComponent<Dot>().column = i;
-
+                    // 设置父类
                     dot.transform.parent = this.transform;
                     dot.name = "( " + i + ", " + j + " )";
                     allDots[i, j] = dot;
@@ -582,6 +597,10 @@ public class Board : MonoBehaviour {
                     allDots[i, j] = piece;
                     piece.GetComponent<Dot>().row = j;
                     piece.GetComponent<Dot>().column = i;
+
+                    // 设置父类
+                    piece.transform.parent = this.transform;
+                    piece.name = "( " + i + ", " + j + " )";
                 } 
             }
         }
@@ -671,6 +690,8 @@ public class Board : MonoBehaviour {
                     GameObject tile = Instantiate(slimePiecePrefab, tempPosition, Quaternion.identity);
                     slimeTiles[newX + (int)adjacent.x, newY + (int)adjacent.y] = tile.GetComponent<BackgroundTile>();
                     slime = true;
+                    //设置父类
+                    tile.transform.parent = this.transform;
                 }
             }
             
