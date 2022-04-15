@@ -32,7 +32,6 @@ public class HintManager : MonoBehaviour {
 
     //首先找到所有可能的匹配
     List<GameObject> findAllMatches() {
-        Debug.Log("******************开始一轮匹配查找**********************");
         List<GameObject> possibleMoves = new List<GameObject>();
         for (int i = 0; i < board.width; i++) {
             for (int j = 0; j < board.height; j++) {
@@ -40,14 +39,12 @@ public class HintManager : MonoBehaviour {
                     if (i < board.width - 1) {
                         if (board.SwitchAndCheck(i, j, Vector2.right)) {
                             possibleMoves.Add(board.allDots[i, j]);
-                            Debug.Log("[" + i + "," +j+ "]右边合适");
                         }
 
                     }
                     if (j < board.height - 1) {
                         if (board.SwitchAndCheck(i, j, Vector2.up)) {
                             possibleMoves.Add(board.allDots[i, j]);
-                            Debug.Log("[" + i + "," + j + "]上边合适");
                         }
                     }
                 }
@@ -69,7 +66,6 @@ public class HintManager : MonoBehaviour {
     //在选中的匹配上创建提示
     private void MarkHint() {
         GameObject move = PickOneRandomly();
-        Debug.Log("被选中的" + move.tag);
         if (move != null) {
             currentHint = Instantiate(hintParticle, move.transform.position, Quaternion.identity);
         }

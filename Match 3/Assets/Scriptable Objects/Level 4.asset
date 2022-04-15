@@ -92,3 +92,7 @@ MonoBehaviour:
     numberCollected: 0
     goalSprite: {fileID: -3341713634967663010, guid: 746baf698a4ef4462b4a83f036f36ab7, type: 3}
     matchValue: Dark Green Dot
+  - numberNeeded: 5
+    numberCollected: 0
+    goalSprite: {fileID: 2546483071237738640, guid: 746baf698a4ef4462b4a83f036f36ab7, type: 3}
+    matchValue: Blue Dot

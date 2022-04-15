@@ -5,20 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dark Green Dot
-  - Green Dot
-  - Indigo Dot
   - Orange Dot
   - Red Dot
-  - Salmon Dot
-  - Teal Dot
   - Yellow Dot
-  - Puice Dot
   - Color
   - Breakable
   - Board
   - Concreate
   - Chocolate
   - Lock
+  - Gray Dot
+  - Blue Dot
+  - Light Green Dot
   layers:
   - Default
   - TransparentFX

@@ -36,12 +36,12 @@ MonoBehaviour:
   scoreGoals: e803000088130000581b0000
   endGameRequiremants:
     gameType: 0
-    counterValue: 100
+    counterValue: 30
   levelGoals:
-  - numberNeeded: 2
+  - numberNeeded: 10
     numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: b0c67e4bf68054bb4a6d0e950c2454aa, type: 3}
-    matchValue: Indigo Dot
+    goalSprite: {fileID: -3341713634967663010, guid: 746baf698a4ef4462b4a83f036f36ab7, type: 3}
+    matchValue: Dark Green Dot
   - numberNeeded: 4
     numberCollected: 0
     goalSprite: {fileID: 21300000, guid: fa0f466105186472dacf7e9974c5ba1f, type: 3}

@@ -20,6 +20,7 @@ public class EndGameManager : MonoBehaviour {
 
     public EndGameRequiremants requiremants;
 
+    public Text levelText;
     public GameObject movesLabel;
     public GameObject timeLabel;
     public GameObject youWinPanel;
@@ -43,6 +44,7 @@ public class EndGameManager : MonoBehaviour {
         if (board.world != null) {
             if (board.level < board.world.levels.Length) {
                 if (board.world.levels[board.level] != null) {
+                    
                     requiremants = board.world.levels[board.level].endGameRequiremants;
                 }
             }
@@ -53,7 +55,11 @@ public class EndGameManager : MonoBehaviour {
     /// 初始化
     /// </summary>
     public void Setup() {
+        // 初始化等级
+        levelText.text = "" + board.level;
+        Debug.Log("初始化等级, level = " + (board.level + 1));
         currentCounterValue = requiremants.counterValue;
+        /** 不再显示Move还是Time
         if (requiremants.gameType == GameType.Moves) {
             movesLabel.SetActive(true);
             timeLabel.SetActive(false);
@@ -63,6 +69,8 @@ public class EndGameManager : MonoBehaviour {
             movesLabel.SetActive(false);
             timeLabel.SetActive(true);
         }
+        **/
+
         counter.text = "" + currentCounterValue;
     }
 
@@ -109,6 +117,9 @@ public class EndGameManager : MonoBehaviour {
     }
 
     void Update() {
+        // 初始化等级
+        levelText.text = "" + (board.level + 1);
+        
         if (requiremants.gameType == GameType.Time && currentCounterValue > 0) {
             timerSeconds -= Time.deltaTime;
             if (timerSeconds <= 0) {

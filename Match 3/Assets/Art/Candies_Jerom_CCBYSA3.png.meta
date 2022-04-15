@@ -10,7 +10,7 @@ TextureImporter:
     second: Red 1
   - first:
       213: -3341713634967663010
-    second: Green 1
+    second: Dark Green 1
   - first:
       213: 744376705736303324
     second: Orange 1
@@ -28,7 +28,7 @@ TextureImporter:
     second: Red 2
   - first:
       213: -3294949036715978871
-    second: Green 2
+    second: Dark Green 2
   - first:
       213: 5185095977495115759
     second: Orange 2
@@ -46,7 +46,7 @@ TextureImporter:
     second: Red 3
   - first:
       213: -6727120835001465942
-    second: Green 3
+    second: Dark Green 3
   - first:
       213: -3094767024573165185
     second: Orange 3
@@ -64,7 +64,7 @@ TextureImporter:
     second: Red 4
   - first:
       213: -9022215443827216769
-    second: Green 4
+    second: Dark Green 4
   - first:
       213: 8268811758730429870
     second: Orange 4
@@ -82,7 +82,7 @@ TextureImporter:
     second: Red 5
   - first:
       213: 4733036294067590332
-    second: Green 5
+    second: Dark Green 5
   - first:
       213: -2690318226489058920
     second: Orange 5
@@ -100,7 +100,7 @@ TextureImporter:
     second: Red 6
   - first:
       213: 8371561339461171880
-    second: Green 6
+    second: Dark Green 6
   - first:
       213: -470517028041014135
     second: Orange 6
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green 1
+      name: Dark Green 1
       rect:
         serializedVersion: 2
         x: 200
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green 2
+      name: Dark Green 2
       rect:
         serializedVersion: 2
         x: 201
@@ -535,7 +535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green 3
+      name: Dark Green 3
       rect:
         serializedVersion: 2
         x: 200
@@ -661,7 +661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green 4
+      name: Dark Green 4
       rect:
         serializedVersion: 2
         x: 200
@@ -787,7 +787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green 5
+      name: Dark Green 5
       rect:
         serializedVersion: 2
         x: 200
@@ -913,7 +913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green 6
+      name: Dark Green 6
       rect:
         serializedVersion: 2
         x: 200

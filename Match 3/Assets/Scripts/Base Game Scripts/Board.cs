@@ -37,6 +37,7 @@ public class Board : MonoBehaviour {
 
     [Header("Scriptable Object Stuff")]
     public World world;
+    // level 从0 计数
     public int level;
 
     public GameState currentState = GameState.move;
@@ -325,6 +326,7 @@ public class Board : MonoBehaviour {
         if (findMatches.currentMatches.Count > 3) {
             // 炸弹类型
             MatchType typeOfMatch = ColumnOrRow();
+            Debug.Log("生成炸弹, count = " + findMatches.currentMatches.Count + ", type = " + typeOfMatch.type + ", color = " + typeOfMatch.color );
             if (typeOfMatch.type == 1) {
                 // 颜色炸弹
                 if (currentDot != null && currentDot.isMatched && currentDot.tag == typeOfMatch.color) {

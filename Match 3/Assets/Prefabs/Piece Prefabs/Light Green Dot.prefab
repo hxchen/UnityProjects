@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6511045040798675533}
   - component: {fileID: 399081547}
   m_Layer: 0
-  m_Name: Green Dot
-  m_TagString: Green Dot
+  m_Name: Light Green Dot
+  m_TagString: Light Green Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
