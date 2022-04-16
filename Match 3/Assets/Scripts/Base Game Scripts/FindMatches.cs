@@ -25,13 +25,13 @@ public class FindMatches : MonoBehaviour {
         List<GameObject> currentDots = new List<GameObject>();
 
         if (dot1.isAdjacentBomb) {
-            currentDots.Union(GetAdjacentPieces(dot1.column, dot1.row));
+            currentMatches.Union(GetAdjacentPieces(dot1.column, dot1.row));
         }
         if (dot2.isAdjacentBomb) {
-            currentDots.Union(GetAdjacentPieces(dot2.column, dot2.row));
+            currentMatches.Union(GetAdjacentPieces(dot2.column, dot2.row));
         }
         if (dot3.isAdjacentBomb) {
-            currentDots.Union(GetAdjacentPieces(dot3.column, dot3.row));
+            currentMatches.Union(GetAdjacentPieces(dot3.column, dot3.row));
         }
 
         return currentDots;
@@ -43,15 +43,15 @@ public class FindMatches : MonoBehaviour {
         List<GameObject> currentDots = new List<GameObject>();
 
         if (dot1.isRowBomb) {
-            currentDots.Union(GetRowPieces(dot1.row));
+            currentMatches.Union(GetRowPieces(dot1.row));
             board.BombRow(dot1.row);
         }
         if (dot2.isRowBomb) {
-            currentDots.Union(GetRowPieces(dot2.row));
+            currentMatches.Union(GetRowPieces(dot2.row));
             board.BombRow(dot2.row);
         }
         if (dot3.isRowBomb) {
-            currentDots.Union(GetRowPieces(dot3.row));
+            currentMatches.Union(GetRowPieces(dot3.row));
             board.BombRow(dot3.row);
         }
 
@@ -63,15 +63,15 @@ public class FindMatches : MonoBehaviour {
         List<GameObject> currentDots = new List<GameObject>();
 
         if (dot1.isColumnBomb) {
-            currentDots.Union(GetColumnPieces(dot1.column));
+            currentMatches.Union(GetColumnPieces(dot1.column));
             board.BombColumn(dot1.column);
         }
         if (dot2.isColumnBomb) {
-            currentDots.Union(GetColumnPieces(dot2.column));
+            currentMatches.Union(GetColumnPieces(dot2.column));
             board.BombColumn(dot2.column);
         }
         if (dot3.isColumnBomb) {
-            currentDots.Union(GetColumnPieces(dot3.column));
+            currentMatches.Union(GetColumnPieces(dot3.column));
             board.BombColumn(dot3.column);
         }
 

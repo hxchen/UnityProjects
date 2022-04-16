@@ -219,8 +219,8 @@ public class Dot : MonoBehaviour {
         previousColumn = column;
         if (board.lockTiles[column, row] == null && board.lockTiles[column + (int)direction.x, row + (int)direction.y] == null) {
             if (otherDot != null) {
-                otherDot.GetComponent<Dot>().column -= 1 * (int)direction.x;
-                otherDot.GetComponent<Dot>().row -= 1 * (int)direction.y;
+                otherDot.GetComponent<Dot>().column += -1 * (int)direction.x;
+                otherDot.GetComponent<Dot>().row += -1 * (int)direction.y;
                 column += (int)direction.x;
                 row += (int)direction.y;
                 //协同程序

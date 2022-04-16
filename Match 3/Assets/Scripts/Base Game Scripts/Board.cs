@@ -276,10 +276,9 @@ public class Board : MonoBehaviour {
             Dot thisDot = matchCopy[i].GetComponent<Dot>();
             string color = matchCopy[i].tag;
 
-            int column = thisDot.column;
-            int row = thisDot.row;
-            int columnMatch = 0;
-            int rowMatch = 0;
+            
+            int columnMatch = 1;
+            int rowMatch = 1;
             for (int j = 0; j < matchCopy.Count; j++) {
                 Dot nextDot = matchCopy[j].GetComponent<Dot>();
                 if (nextDot == thisDot) {
@@ -295,22 +294,24 @@ public class Board : MonoBehaviour {
             // 行列炸弹返回 3
             // 相邻炸弹返回 2
             // 颜色炸弹返回 1
-            if (columnMatch == 4 || rowMatch == 4) {
+            if (columnMatch == 5 || rowMatch == 5) {
+                // These special candies are created when 5 candies of the same color form a horizontal or vertical match.
                 matchType.type = 1;
                 matchType.color = color;
                 return matchType;
             }
-            else if (columnMatch == 2 || rowMatch == 2) {
+            if (columnMatch == 3 && rowMatch == 3) {
+                // These special candies are created when 5 candies of the same color form a T-shaped or L-shaped match.
                 matchType.type = 2;
                 matchType.color = color;
                 return matchType;
             }
-            else if (columnMatch == 3 || rowMatch == 3) {
+            if (columnMatch == 4 || rowMatch == 4) {
+                // These special candies are created when 4 candies of the same color form a match and the direction of the last swap is horizontal(vertical).
                 matchType.type = 3;
                 matchType.color = color;
                 return matchType;
             }
-
         }
         matchType.type = 0;
         matchType.color = "";
@@ -448,7 +449,7 @@ public class Board : MonoBehaviour {
                 }
             }
         }
-        
+
         StartCoroutine(DecreaseRowCo2());
     }
 
@@ -541,7 +542,7 @@ public class Board : MonoBehaviour {
             }
         }
     }
-
+    // 向下坠落
     private IEnumerator DecreaseRowCo2() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
