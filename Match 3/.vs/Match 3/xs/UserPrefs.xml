@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/FindMatches.cs">
     <Files>
-      <File FileName="Assets/Scripts/Base Game Scripts/EndGameManager.cs" Line="68" Column="30" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="148" Column="5" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="611" Column="30" />
+      <File FileName="Assets/Scripts/Editor/ToolsEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Base Game Scripts/EndGameManager.cs" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" />
       <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" />
-      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="95" Column="25" />
+      <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="78" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,8 +14,9 @@
           <Node name="Match 3" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Base Game Scripts" expanded="True">
-                  <Node name="FindMatches.cs" selected="True" />
+                <Node name="Base Game Scripts" expanded="True" />
+                <Node name="Editor" expanded="True">
+                  <Node name="ToolsEditor.cs" selected="True" />
                 </Node>
                 <Node name="Game Data Scripts" expanded="True" />
                 <Node name="Scriptable Objects" expanded="True" />
@@ -28,7 +30,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dcb06d0d-fcdb-4796-97b1-b6eac6810b7c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9e13989d-e7af-486c-a66f-34ad8d20b99a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
