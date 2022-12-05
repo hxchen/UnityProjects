@@ -1,4 +1,2 @@
-### 闪电效果
-
-
-![](https://github.com/hxchen/UnityProjects/blob/main/LightingWithLineRenderer/Assets/Sprites/gif_animation_001.gif | width=300)
+Effect
+![image](https://github.com/hxchen/UnityProjects/raw/main/LightingWithLineRenderer/Assets/Sprites/gif_animation_001.gif)
