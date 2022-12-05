@@ -1,12 +1,19 @@
 ﻿<Properties StartupConfiguration="{F8F1F011-56B1-4D35-A408-90E3A1B72FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/FindMatches.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7bd9960c-cca3-48af-906d-1fac6917c353" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Base Game Scripts/Board.cs">
     <Files>
-      <File FileName="Assets/Scripts/Editor/ToolsEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Base Game Scripts/EndGameManager.cs" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" />
-      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" />
-      <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" />
+      <File FileName="Assets/Scripts/Editor/ToolsEditor.cs" Line="23" Column="6" />
+      <File FileName="Assets/Scripts/Base Game Scripts/EndGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Dot.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Base Game Scripts/Board.cs" Line="579" Column="23" />
+      <File FileName="Assets/Scripts/UI/ConfirmPanel.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Base Game Scripts/FindMatches.cs" Line="78" Column="28" />
+      <File FileName="Assets/Scripts/UI/LevelSelectManager.cs" Line="40" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,25 +21,23 @@
           <Node name="Match 3" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Base Game Scripts" expanded="True" />
-                <Node name="Editor" expanded="True">
-                  <Node name="ToolsEditor.cs" selected="True" />
+                <Node name="Base Game Scripts" expanded="True">
+                  <Node name="Board.cs" selected="True" />
                 </Node>
-                <Node name="Game Data Scripts" expanded="True" />
-                <Node name="Scriptable Objects" expanded="True" />
-                <Node name="UI" expanded="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9e13989d-e7af-486c-a66f-34ad8d20b99a" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
