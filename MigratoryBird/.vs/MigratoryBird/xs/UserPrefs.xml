@@ -1,29 +1,38 @@
-﻿<Properties StartupConfiguration="{130FA238-8D98-05C2-C0A5-5E4D4FC33668}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scrpits/Pipes.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="91e5ce91-c8f7-4532-a361-54268b03dba0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scrpits/Player.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scrpits/Parallax.cs" Line="12" Column="26" />
-      <File FileName="Assets/Scrpits/Spawn.cs" Line="27" Column="1" />
-      <File FileName="Assets/Scrpits/Pipes.cs" Line="7" Column="27" />
-      <File FileName="Assets/Scrpits/GameManager.cs" Line="32" Column="31" />
+      <File FileName="Assets/Scripts/Pipes.cs" Line="21" Column="10" />
+      <File FileName="Assets/Scripts/Spawner.cs" Line="21" Column="6" />
+      <File FileName="Assets/Scripts/Player.cs" Line="72" Column="54" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="31" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MigratoryBird" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scrpits" expanded="True">
-                <Node name="Pipes.cs" selected="True" />
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="GameManager.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>i</Value>
+          <Value>j</Value>
+          <Value>xIndex</Value>
+          <Value>yIndex</Value>
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="617b0575-4da5-4e34-af34-adac6d483590" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
